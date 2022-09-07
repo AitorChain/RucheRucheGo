@@ -9,7 +9,11 @@ const ProductPage = () => {
         color='bg-purple'
         height="h-56"
       />
-      <Navbar />
+      <Navbar 
+        showSearchBar={false}
+        whiteLogo
+        pageTitle="PEPINILLOS FRESCOS"
+      />
     </div>
   );
 };

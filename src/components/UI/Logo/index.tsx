@@ -4,16 +4,17 @@ import logo from '../../../assets/logo';
 interface ILogo {
   showFullLogo?: boolean,
   className: string,
+  whiteLogo?: boolean,
 }
 
-const Logo: FC<ILogo> = ({ showFullLogo, className }) => {
+const Logo: FC<ILogo> = ({ showFullLogo, className, whiteLogo }) => {
 
-  if (showFullLogo) {
+  if (showFullLogo || whiteLogo) {
     return (
       <img 
-        src={logo.expandedLogo}
+        src={whiteLogo ? logo.whiteLogoExpanded : logo.expandedLogo}
         alt='expanded-logo'
-        className={`px-0 ${className}`}
+        className={`z-0 px-0 ${className}`}
       />
     );
   }
@@ -22,7 +23,7 @@ const Logo: FC<ILogo> = ({ showFullLogo, className }) => {
     <img 
       src={logo.logo}
       alt='logo'
-      className={`py-2 ${className}`}
+      className={`z-0 py-2 ${className}`}
     />       
   );
 };

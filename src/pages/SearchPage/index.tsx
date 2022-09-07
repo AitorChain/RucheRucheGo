@@ -5,7 +5,9 @@ import ProductsList from '../../components/Products/ProductsList';
 const SearchPage = () => {
   return (
     <>
-      <Navbar />
+      <Navbar 
+        showSearchBar
+      />
       <main className='flexCenter my-8 md:my-16'>
         <ProductsList />
       </main>
