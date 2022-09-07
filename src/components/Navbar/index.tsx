@@ -5,11 +5,10 @@ import SearchBar from '../UI/SearchBar';
 
 interface INavbar {
   showSearchBar: boolean,
-  pageTitle?: string,
   whiteLogo?: boolean,
 }
 
-const Navbar: FC<INavbar> = ({showSearchBar, pageTitle, whiteLogo}) => {
+const Navbar: FC<INavbar> = ({showSearchBar, whiteLogo}) => {
   const { isMobile } = useMobileDetect();
 
   /* 
@@ -35,24 +34,19 @@ const Navbar: FC<INavbar> = ({showSearchBar, pageTitle, whiteLogo}) => {
   );
   
   const searchBar = (
-    <div className='w-[40rem]'>
-      <SearchBar
-        placeHolder="Qu'est-ce qu'on veut manger aujourd'hui?"
-      />
+    <div className='flex flexCenter my-4 md:my-8'>
+      <div className='w-[40rem]'>
+        <SearchBar
+          placeHolder="Qu'est-ce qu'on veut manger aujourd'hui?"
+        />
+      </div>
     </div>
-  );
-
-  const title = (
-    <h1 className='z-0 text-3xl'>{pageTitle}</h1>
   );
 
   return (
     <div>
       {logo}
-      <div className='flex flexCenter my-4 md:my-8'>
-        {!pageTitle && showSearchBar && searchBar}
-        {pageTitle && title}
-      </div>
+      {showSearchBar && searchBar}
     </div>
   );
 };

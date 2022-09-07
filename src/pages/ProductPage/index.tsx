@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from '../../components/Navbar';
 import BackgroundColorEffect from '../../components/UI/BackgroundColorEffect';
+import { PageTitle } from '../../components/UI/Typography';
 
 const ProductPage = () => {
   return (
@@ -12,8 +13,11 @@ const ProductPage = () => {
       <Navbar 
         showSearchBar={false}
         whiteLogo
-        pageTitle="PEPINILLOS FRESCOS"
       />
+      <PageTitle className='text-white'>PEPINILLOS FRESCOS</PageTitle>
+      <main>
+        
+      </main>
     </div>
   );
 };

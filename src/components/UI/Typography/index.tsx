@@ -1,9 +1,9 @@
-import Title from './Title';
+import PageTitle from './PageTitle';
 import Subtitle from './Subtitle';
 import Paragraph from './Paragraph';
 
 export {
-  Title,
+  PageTitle,
   Subtitle,
   Paragraph
 };
