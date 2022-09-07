@@ -1,9 +1,9 @@
-import './App.css';
 import Homepage from './pages/Homepage';
+import SearchPage from './pages/SearchPage';
 
 const App = () => {
   return (
-    <div className="App">
+    <div className="mx-2 md:mx-8">
       <Homepage />
     </div>
   );

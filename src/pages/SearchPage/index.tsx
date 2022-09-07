@@ -1,8 +1,9 @@
 import React from 'react';
+import Navbar from '../../components/Navbar';
 
 const SearchPage = () => {
   return (
-    <div>SearchPage</div>
+    <Navbar />
   );
 };
 
