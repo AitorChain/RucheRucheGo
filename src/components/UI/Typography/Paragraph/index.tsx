@@ -6,7 +6,7 @@ interface IParagraph {
 
 const Paragraph: FC<IParagraph> = ({children}) => {
   return (
-    <p className='text-black text-justify'>{children}</p>
+    <p className='text-black text-lg text-justify'>{children}</p>
   );
 };
 
