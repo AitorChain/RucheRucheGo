@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { FC } from 'react';
 
-const DetailsSection = () => {
+interface IDetailsSection {
+  children: JSX.Element | JSX.Element[] | string
+  categorieName: string
+}
+
+const DetailsSection: FC<IDetailsSection> = ({children, categorieName}) => {
   return (
-    <div>DetailsSection</div>
+    <div className='flex flex-col gap-3'>
+      <h2 className='text-3xl georgia text-center font-normal text-red'>{categorieName}</h2>
+      <div className='text-black text-justify'>{children}</div>
+    </div>
   );
 };
 

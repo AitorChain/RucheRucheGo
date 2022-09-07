@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { FC } from 'react';
 
-const TextWrapper = () => {
+interface ITextWrapper {
+  children: JSX.Element | JSX.Element[] | string
+  className: string
+}
+
+const TextWrapper: FC<ITextWrapper> = ({children, className}) => {
   return (
-    <div>TextWrapper</div>
+    <div className={`bg-white ${className}`}>{children}</div>
   );
 };
 

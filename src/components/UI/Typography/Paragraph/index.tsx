@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { FC } from 'react';
 
-const Paragraph = () => {
+interface IParagraph {
+  children: string
+}
+
+const Paragraph: FC<IParagraph> = ({children}) => {
   return (
-    <div>Paragraph</div>
+    <p className='text-black text-justify'>{children}</p>
   );
 };
 

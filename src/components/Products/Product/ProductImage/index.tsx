@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { FC } from 'react';
+import Card from '../../../UI/Card';
 
-const ProductImage = () => {
+interface IProductImage {
+  productImageSrc: string,
+  productName: string,
+}
+
+const ProductImage: FC<IProductImage> = ({productImageSrc, productName}) => {
+
   return (
-    <div>ProductImage</div>
+    <Card>
+      <img 
+        src={productImageSrc}
+        alt={productName}
+        className='object-cover sm:w-96 sm:h-96 rounded-md border-white border' />
+    </Card>
   );
 };
 
