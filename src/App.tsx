@@ -1,12 +1,10 @@
-import React from 'react';
 import './App.css';
+import Homepage from './pages/Homepage';
 
 const App = () => {
   return (
     <div className="App">
-      <h1 className="text-3xl font-bold text-purple underline">
-      Hello world!
-      </h1>
+      <Homepage />
     </div>
   );
 };
