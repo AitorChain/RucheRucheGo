@@ -14,7 +14,7 @@ const ProductPreview: FC<IProductPreview> = ({productImageSrc, productName}) => 
 
   const imgStyles = `object-cover sm:w-52 sm:h-56 rounded-md rounded-b-none transition duration-100 ease-in-out ${isHover && 'brightness-50	'}`;
 
-  const textOnHover = <div className='absolute text-center text-white text-xl mb-8 transition ease-in-out duration-500 font-bold georgia'>Clickez pour nous<br/>decouvrir!</div>;
+  const textOnHover = <div className='absolute text-center text-white text-xl mb-8 transition ease-in-out duration-500 font-bold georgia'>Clickez pour me<br/>decouvrir!</div>;
 
   return (
     <div 

@@ -1,12 +1,15 @@
 import React from 'react';
-import FullLogo from '../../components/UI/Logo/FullLogo';
+import Logo from '../../components/UI/Logo';
 import SearchBar from '../../components/UI/SearchBar';
 
 const Homepage = () => {
   return (
     <div className='flexCenter flex-col gap-2 w-full md:h-screen md:mt-0 h-full mt-52 '>
       <div className='flex'>
-        <FullLogo />
+        <Logo
+          showFullLogo
+          className='md:w-[725px] lg:w-[825px]'
+        />
       </div>
       <div className='lg:w-[40rem] w-full mt-8'>
         <SearchBar 

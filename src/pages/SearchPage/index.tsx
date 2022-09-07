@@ -6,7 +6,7 @@ const SearchPage = () => {
   return (
     <>
       <Navbar />
-      <main className='flexCenter mt-16'>
+      <main className='flexCenter my-8 md:my-16'>
         <ProductsList />
       </main>
     </>

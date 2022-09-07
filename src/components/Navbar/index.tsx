@@ -1,18 +1,23 @@
 import React from 'react';
 import useMobileDetect from '../../hooks/useMobileDetect';
-import { FullLogo, SmallLogo } from '../UI/Logo/';
+import Logo from '../UI/Logo';
 import SearchBar from '../UI/SearchBar';
 
 const Navbar = () => {
   const { isMobile } = useMobileDetect();
 
   const logo =  isMobile ? (
-    <div className=''>
-      <FullLogo />
+    <div className='flexCenter'>
+      <Logo
+        showFullLogo
+        className='w-[40rem] mt-1'
+      />
     </div>
   ) : (
     <div className='absolute top-0'>
-      <SmallLogo />
+      <Logo 
+        className='w-[70px]'
+      />
     </div>
 
   );
@@ -20,7 +25,7 @@ const Navbar = () => {
   return (
     <div>
       {logo}
-      <div className='flex flexCenter my-8'>
+      <div className='flex flexCenter my-4 md:my-8'>
         <div className='w-[40rem]'>
           <SearchBar
             placeHolder="Qu'est-ce qu'on veut manger aujourd'hui?"
