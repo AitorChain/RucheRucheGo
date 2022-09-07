@@ -1,9 +1,15 @@
 import React from 'react';
 import Navbar from '../../components/Navbar';
+import ProductsList from '../../components/Products/ProductsList';
 
 const SearchPage = () => {
   return (
-    <Navbar />
+    <>
+      <Navbar />
+      <main className='flexCenter'>
+        <ProductsList />
+      </main>
+    </>
   );
 };
 

@@ -5,10 +5,10 @@ import SearchBar from '../UI/SearchBar';
 const Navbar = () => {
   return (
     <div>
-      <div className='fixed'>
+      <div className='fixed top-0'>
         <SmallLogo />
       </div>
-      <div className='flex flexCenter'>
+      <div className='flex flexCenter my-8'>
         <div className='w-[40rem]'>
           <SearchBar
             placeHolder="Qu'est-ce qu'on veut manger aujourd'hui?"

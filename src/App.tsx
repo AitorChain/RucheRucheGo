@@ -4,7 +4,7 @@ import SearchPage from './pages/SearchPage';
 const App = () => {
   return (
     <div className="mx-2 md:mx-8">
-      <Homepage />
+      <SearchPage />
     </div>
   );
 };

@@ -1,8 +1,15 @@
-import React from 'react';
+import React, { FC } from 'react';
 
-const Card = () => {
+interface ICard {
+  className: string,
+  children: JSX.Element[] | JSX.Element
+}
+
+const Card: FC<ICard> = ({children, className}) => {
   return (
-    <div>Card</div>
+    <div className={`rounded-md drop-shadow ${className}`}>
+      {children}
+    </div>
   );
 };
 

@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=League+Gothic&display=swap');
+
+
 body {
   margin: 0;
   background: #ffe8d2;
@@ -17,7 +20,7 @@ body {
   font-family: Georgia,"Times New Roman",Times,serif;
 }
 
-.league-gothic {
+.leagueGothic {
   font-family: "League Gothic","Arial Narrow",Arial,sans;
 }
 
