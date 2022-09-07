@@ -5,7 +5,7 @@ import SearchBar from '../UI/SearchBar';
 const Navbar = () => {
   return (
     <div>
-      <div className='fixed top-0'>
+      <div className='absolute top-0'>
         <SmallLogo />
       </div>
       <div className='flex flexCenter my-8'>
