@@ -1,13 +1,25 @@
 import React from 'react';
-import SmallLogo from '../UI/Logo/SmallLogo';
+import useMobileDetect from '../../hooks/useMobileDetect';
+import { FullLogo, SmallLogo } from '../UI/Logo/';
 import SearchBar from '../UI/SearchBar';
 
 const Navbar = () => {
+  const { isMobile } = useMobileDetect();
+
+  const logo =  isMobile ? (
+    <div className=''>
+      <FullLogo />
+    </div>
+  ) : (
+    <div className='absolute top-0'>
+      <SmallLogo />
+    </div>
+
+  );
+
   return (
     <div>
-      <div className='absolute top-0'>
-        <SmallLogo />
-      </div>
+      {logo}
       <div className='flex flexCenter my-8'>
         <div className='w-[40rem]'>
           <SearchBar
