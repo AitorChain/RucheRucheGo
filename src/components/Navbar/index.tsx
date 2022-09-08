@@ -17,7 +17,7 @@ const Navbar: FC<INavbar> = ({showSearchBar, whiteLogo}) => {
     Note: comme je n'ai reussi a trouver que la version "expanded" de votre logo, je vais l'utiliser dans les deux cas.
   */
   const logo = (isMobile) ? (
-    <div className='flexCenter'>
+    <div className='flexCenter z-[-1]'>
       <Logo
         whiteLogo={whiteLogo}
         showFullLogo
