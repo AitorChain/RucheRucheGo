@@ -1,9 +1,6 @@
-import React, { FC } from 'react';
-import { substringStringsOfArray } from '../../../../utilities/strings';
-import stringToArray from '../../../../utilities/strings/stringToArray';
-import Card from '../../../UI/Card';
-import ItemWrapper from '../../../UI/ItemWrapper';
-import TextWrapper from '../../../UI/TextWrapper';
+import { FC } from 'react';
+import { substringStringsOfArray, stringToArray } from '../../../../utilities/strings';
+import { TextWrapper, ItemWrapper, Card } from '../../../UI';
 import { Paragraph } from '../../../UI/Typography';
 import DetailsSection from './DetailsSection';
 
@@ -22,8 +19,6 @@ const ProductDetails: FC<IProductDetails> = ({product}) => {
   const categories = product?.['categories'];
   const allergens = product?.['allergens_hierarchy'];
   const ingredients = product?.['ingredients_text'];
-
-  console.log(allergens);
 
   const showIngredients = () => {
     return (
@@ -51,13 +46,14 @@ const ProductDetails: FC<IProductDetails> = ({product}) => {
   const showAllergens = () => {
     const formattedAlergenes = substringStringsOfArray(allergens, 3);
 
-    return (<DetailsSection categorieName='Allergènes'
-      className='flexCenter md:flexStartCenter flex-row flex-wrap gap-y-2 gap-x-4'>
-      {formattedAlergenes.map((categorie, index) => (
-        <ItemWrapper key={index}
-          className="bg-lightPink text-black text-opacity-80">{categorie}</ItemWrapper>
-      ))}
-    </DetailsSection>);
+    return (
+      <DetailsSection categorieName='Allergènes'
+        className='flexCenter md:flexStartCenter flex-row flex-wrap gap-y-2 gap-x-4'>
+        {formattedAlergenes.map((categorie, index) => (
+          <ItemWrapper key={index}
+            className="bg-lightPink text-black text-opacity-80">{categorie}</ItemWrapper>
+        ))}
+      </DetailsSection>);
   };
 
   return (

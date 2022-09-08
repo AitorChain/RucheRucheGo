@@ -1,5 +1,5 @@
-import React, { FC } from 'react';
-import Card from '../../../UI/Card';
+import { FC } from 'react';
+import { Card } from '../../../UI';
 
 interface IProductImage {
   productImageSrc: string,
