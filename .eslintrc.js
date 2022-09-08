@@ -31,7 +31,7 @@ module.exports = {
     'react/jsx-props-no-spreading': 'off',
     'react/jsx-one-expression-per-line': 'off',
     'react/react-in-jsx-scope': 'off',
-    'react/jsx-max-props-per-line': [1, { 'maximum': 1 }],
+    'react/jsx-max-props-per-line': [1, { 'maximum': 2 }],
 
     'indent': [
       'error',
