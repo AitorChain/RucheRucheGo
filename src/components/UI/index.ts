@@ -5,6 +5,7 @@ import ItemWrapper from './ItemWrapper';
 import Logo from './Logo';
 import SearchBar from './SearchBar';
 import TextWrapper from './TextWrapper';
+import LoadingSpinner from './LoadingSpinner';
 
 export {
   BackgroundColorEffect,
@@ -12,6 +13,7 @@ export {
   Card,
   ItemWrapper,
   Logo,
+  LoadingSpinner,
   SearchBar,
   TextWrapper
 };
