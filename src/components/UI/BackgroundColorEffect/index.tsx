@@ -7,7 +7,7 @@ interface IBackgroundColorEffect {
 
 const BackgroundColorEffect: FC<IBackgroundColorEffect> = (props) => {
   return (
-    <div className={`bg-purple w-full h-56 absolute left-0 top-0 ${props}`}/>
+    <div className={`bg-purple w-full h-64 absolute left-0 top-0 ${props}`}/>
   );
 };
 

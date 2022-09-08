@@ -13,7 +13,7 @@ const ProductImage: FC<IProductImage> = ({productImageSrc, productName}) => {
       <img 
         src={productImageSrc}
         alt={productName}
-        className='object-cover sm:w-96 sm:h-96 rounded-md border-white border' />
+        className='object-cover w-auto h-auto lg:w-96 lg:h-96 rounded-md border-white border' />
     </Card>
   );
 };

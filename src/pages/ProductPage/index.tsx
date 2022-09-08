@@ -16,9 +16,9 @@ const ProductPage = () => {
         showSearchBar={false}
         whiteLogo
       />
-      <PageTitle className='text-white'>PEPINILLOS FRESCOS</PageTitle>
+      <PageTitle className='text-white text-center'>PEPINILLOS FRESCOS</PageTitle>
       <main>
-        <div className='flexCenterStart flex-row gap-28'>
+        <div className='flexCenter flex-col lg:flex lg:items-start lg:flexCenterStart lg:flex-row gap-8 lg:gap-28 mb-8 '>
           <ProductImage 
             productImageSrc='https://www.finedininglovers.com/es/sites/g/files/xknfdk1706/files/styles/article_1200_800_fallback/public/2022-06/Type%20of%20cucumber.jpg?itok=WEuXomjV'
             productName='Pepinillos Frescos'
