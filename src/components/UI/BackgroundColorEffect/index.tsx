@@ -5,9 +5,9 @@ interface IBackgroundColorEffect {
   height: string,
 }
 
-const BackgroundColorEffect: FC<IBackgroundColorEffect> = ({color, height}) => {
+const BackgroundColorEffect: FC<IBackgroundColorEffect> = ({color = 'bg-purple', height = 'h-64'}) => {
   return (
-    <div className={`bg-purple w-full z-[-1] h-64 absolute left-0 top-0 ${color} ${height}`}/>
+    <div className={`w-full z-[-1] absolute left-0 top-0 ${color} ${height}`}/>
   );
 };
 

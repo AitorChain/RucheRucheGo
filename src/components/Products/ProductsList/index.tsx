@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
-import ProductPreview from '../Product/ProductPreview';
+
+import { ProductPreview } from '../Product';
 
 interface IProductsList {
   products: {

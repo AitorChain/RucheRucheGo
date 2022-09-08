@@ -1,5 +1,6 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import useMobileDetect from '../../hooks/useMobileDetect';
+
 import Logo from '../UI/Logo';
 import SearchBar from '../UI/SearchBar';
 

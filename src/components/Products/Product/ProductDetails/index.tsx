@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { substringStringsOfArray, stringToArray } from '../../../../utilities/strings';
+
 import { TextWrapper, ItemWrapper, Card } from '../../../UI';
 import { Paragraph } from '../../../UI/Typography';
 import DetailsSection from './DetailsSection';

@@ -1,13 +1,13 @@
 import { skipToken } from '@reduxjs/toolkit/dist/query';
 import { useParams } from 'react-router-dom';
-import Navbar from '../../components/Navbar';
-import ProductDetails from '../../components/Products/Product/ProductDetails';
-import ProductImage from '../../components/Products/Product/ProductImage';
-import BackgroundColorEffect from '../../components/UI/BackgroundColorEffect';
-import { PageTitle } from '../../components/UI/Typography';
 import { useGetProductByIdQuery } from '../../services/OpenFood';
+
+import Navbar from '../../components/Navbar';
+import { LoadingSpinner, BackgroundColorEffect } from '../../components/UI';
+import { PageTitle } from '../../components/UI/Typography';
+import { ProductDetails, ProductImage } from '../../components/Products/Product';
 import productPlaceholder from '../../assets/product-placeholder.jpg';
-import { LoadingSpinner } from '../../components/UI';
+
 
 const ProductPage = () => {
 
@@ -15,7 +15,8 @@ const ProductPage = () => {
 
   const { data, error, isLoading } = useGetProductByIdQuery(id ?? skipToken);
 
-
+  console.log(data);
+  
   return (
     <div>
       <BackgroundColorEffect
@@ -30,7 +31,7 @@ const ProductPage = () => {
       <main>
         {isLoading && <LoadingSpinner />}
         {error && <h2 className='text-2xl'>Il y a eu un erreur. Réesayez plus tard.</h2>}
-        {!error && !isLoading && (
+        {data && (
           <div className='flexCenter flex-col lg:flex lg:items-start lg:flexCenterStart lg:flex-row gap-8 lg:gap-28 mb-8 '>
             <ProductImage 
               productImageSrc={data?.product['image_front_url'] || productPlaceholder}

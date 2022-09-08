@@ -33,7 +33,7 @@ export const openFoodApi = createApi({
       query: (searchTerm) => `cgi/search.pl?search_terms=${searchTerm}&search_simple=1&action=process&fields=id%2Cproduct_name%2Cimage_front_url&json=1&page=1&page_size=24`
     }),
     getProductById: builder.query<IProductResult, string>({
-      query: (id) => `https://world.openfoodfacts.org/api/v0/product/${id}.json?fields=product_name%2Ccategories%2Cimage_front_url%2Callergens_hierarchy%2Cingredients_text`
+      query: (id) => `api/v0/product/${id}.json?fields=product_name%2Ccategories%2Cimage_front_url%2Callergens_hierarchy%2Cingredients_text`
     })
   })
 });
