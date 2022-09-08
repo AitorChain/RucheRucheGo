@@ -61,7 +61,7 @@ const ProductDetails: FC<IProductDetails> = ({product}) => {
       <TextWrapper className='py-4 px-6 pb-8 lg:py-4 lg:px-8 flex flex-col gap-8'>
         {ingredients && showIngredients()}
         {categories && showCategories()}
-        {allergens && showAllergens()}
+        {allergens.length !== 0 && showAllergens()}
       </TextWrapper>
     </Card>
   );
