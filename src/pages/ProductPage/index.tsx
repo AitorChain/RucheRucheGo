@@ -14,8 +14,6 @@ const ProductPage = () => {
   const { id } = useParams();
 
   const { data, error, isLoading } = useGetProductByIdQuery(id ?? skipToken);
-
-  console.log(data);
   
   return (
     <div>

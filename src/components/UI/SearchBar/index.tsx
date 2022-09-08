@@ -1,5 +1,4 @@
-import { ChangeEvent, FC, FormEvent } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { ChangeEvent, FC, FormEvent, FormEventHandler } from 'react';
 import { useAppDispatch, useAppSelector } from '../../../app/hooks/hooks';
 import { setSearchQuery } from '../../../features/searchSlice';
 import Button from '../Button';
@@ -7,21 +6,18 @@ import Button from '../Button';
 interface ISearchBar {
   showButton?: boolean,
   buttonText?: string,
-  placeHolder: string
+  placeHolder: string,
+  submitHandler?: FormEventHandler<HTMLFormElement>
 }
 
-const SearchBar: FC<ISearchBar> = ({showButton, buttonText, placeHolder, }) => {
+const defaultSubmitHandler = (event: FormEvent<HTMLFormElement>) => {
+  event.preventDefault();
+};
+
+const SearchBar: FC<ISearchBar> = ({showButton, buttonText, placeHolder, submitHandler = defaultSubmitHandler }) => {
   const { searchQuery } = useAppSelector(state => state.search);
 
-  const navigate = useNavigate();
   const dispatch = useAppDispatch();
-
-  const submitHandler = (event: FormEvent<HTMLFormElement> ) => {
-    event.preventDefault();
-    if (searchQuery.trim() !== '') {
-      navigate('/search');
-    }
-  };
 
   const userKeystrokeHandler = (event: ChangeEvent<HTMLInputElement>) => {
     dispatch(setSearchQuery(event.target.value));
