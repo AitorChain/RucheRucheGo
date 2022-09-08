@@ -1,11 +1,19 @@
-import React from 'react';
+import { skipToken } from '@reduxjs/toolkit/dist/query';
+import React, { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import Navbar from '../../components/Navbar';
 import ProductDetails from '../../components/Products/Product/ProductDetails';
 import ProductImage from '../../components/Products/Product/ProductImage';
 import BackgroundColorEffect from '../../components/UI/BackgroundColorEffect';
 import { PageTitle } from '../../components/UI/Typography';
+import { useGetProductByIdQuery } from '../../services/OpenFood';
 
 const ProductPage = () => {
+
+  const { id } = useParams();
+
+  const { data, error, isLoading } = useGetProductByIdQuery(id ?? skipToken);
+
   return (
     <div>
       <BackgroundColorEffect
@@ -16,14 +24,16 @@ const ProductPage = () => {
         showSearchBar={false}
         whiteLogo
       />
-      <PageTitle className='text-white text-center'>PEPINILLOS FRESCOS</PageTitle>
+      <PageTitle className='text-white text-center'>{data?.product['product_name']}</PageTitle>
       <main>
         <div className='flexCenter flex-col lg:flex lg:items-start lg:flexCenterStart lg:flex-row gap-8 lg:gap-28 mb-8 '>
           <ProductImage 
-            productImageSrc='https://www.finedininglovers.com/es/sites/g/files/xknfdk1706/files/styles/article_1200_800_fallback/public/2022-06/Type%20of%20cucumber.jpg?itok=WEuXomjV'
-            productName='Pepinillos Frescos'
+            productImageSrc={data?.product['image_front_url']}
+            productName={data?.product['product_name']}
           />
-          <ProductDetails />
+          <ProductDetails 
+            product={data?.['product']}           
+          />
         </div>
       </main>
     </div>

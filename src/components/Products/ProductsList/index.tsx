@@ -1,82 +1,27 @@
-import React from 'react';
+import React, { FC } from 'react';
+import { Link } from 'react-router-dom';
 import ProductPreview from '../Product/ProductPreview';
 
-const PRODUCTS = [
-  {
-    productImageSrc: 'https://www.finedininglovers.com/es/sites/g/files/xknfdk1706/files/styles/article_1200_800_fallback/public/2022-06/Type%20of%20cucumber.jpg?itok=WEuXomjV',
-    productName: 'PEPINOS FRESCOS',
-  },
-  {
-    productImageSrc: 'https://upload.wikimedia.org/wikipedia/commons/3/34/Two_colors_of_onions.jpg',
-    productName: 'CEBOLLAS',
-  },
-  {
-    productImageSrc: 'https://www.finedininglovers.com/es/sites/g/files/xknfdk1706/files/styles/article_1200_800_fallback/public/2022-06/Type%20of%20cucumber.jpg?itok=WEuXomjV',
-    productName: 'PEPINOS FRESCOS',
-  },
-  {
-    productImageSrc: 'https://upload.wikimedia.org/wikipedia/commons/3/34/Two_colors_of_onions.jpg',
-    productName: 'CEBOLLAS',
-  },
-  {
-    productImageSrc: 'https://www.finedininglovers.com/es/sites/g/files/xknfdk1706/files/styles/article_1200_800_fallback/public/2022-06/Type%20of%20cucumber.jpg?itok=WEuXomjV',
-    productName: 'PEPINOS FRESCOS',
-  },
-  {
-    productImageSrc: 'https://upload.wikimedia.org/wikipedia/commons/3/34/Two_colors_of_onions.jpg',
-    productName: 'CEBOLLAS',
-  },
-  {
-    productImageSrc: 'https://www.finedininglovers.com/es/sites/g/files/xknfdk1706/files/styles/article_1200_800_fallback/public/2022-06/Type%20of%20cucumber.jpg?itok=WEuXomjV',
-    productName: 'PEPINOS FRESCOS',
-  },
-  {
-    productImageSrc: 'https://upload.wikimedia.org/wikipedia/commons/3/34/Two_colors_of_onions.jpg',
-    productName: 'CEBOLLAS',
-  },
-  {
-    productImageSrc: 'https://www.finedininglovers.com/es/sites/g/files/xknfdk1706/files/styles/article_1200_800_fallback/public/2022-06/Type%20of%20cucumber.jpg?itok=WEuXomjV',
-    productName: 'PEPINOS FRESCOS',
-  },
-  {
-    productImageSrc: 'https://upload.wikimedia.org/wikipedia/commons/3/34/Two_colors_of_onions.jpg',
-    productName: 'CEBOLLAS',
-  },
-  {
-    productImageSrc: 'https://www.finedininglovers.com/es/sites/g/files/xknfdk1706/files/styles/article_1200_800_fallback/public/2022-06/Type%20of%20cucumber.jpg?itok=WEuXomjV',
-    productName: 'PEPINOS FRESCOS',
-  },
-  {
-    productImageSrc: 'https://upload.wikimedia.org/wikipedia/commons/3/34/Two_colors_of_onions.jpg',
-    productName: 'CEBOLLAS',
-  },
-  {
-    productImageSrc: 'https://www.finedininglovers.com/es/sites/g/files/xknfdk1706/files/styles/article_1200_800_fallback/public/2022-06/Type%20of%20cucumber.jpg?itok=WEuXomjV',
-    productName: 'PEPINOS FRESCOS',
-  },
-  {
-    productImageSrc: 'https://upload.wikimedia.org/wikipedia/commons/3/34/Two_colors_of_onions.jpg',
-    productName: 'CEBOLLAS',
-  },
-  {
-    productImageSrc: 'https://www.finedininglovers.com/es/sites/g/files/xknfdk1706/files/styles/article_1200_800_fallback/public/2022-06/Type%20of%20cucumber.jpg?itok=WEuXomjV',
-    productName: 'PEPINOS FRESCOS',
-  },
-  {
-    productImageSrc: 'https://upload.wikimedia.org/wikipedia/commons/3/34/Two_colors_of_onions.jpg',
-    productName: 'CEBOLLAS',
-  },
-];
+interface IProductsList {
+  products: {
+    id: number,
+    image_front_url: string,
+    product_name: string
+  }[] | undefined
+}
 
-const ProductsList = () => {
+
+const ProductsList: FC<IProductsList> = ({products}) => {
   return (
     <div 
       className='grid grid-cols-1 2xl:grid-cols-8 xl:grid-cols-6 lg:grid-cols-4 sm:grid-cols-3 gap-6'>
       {
-        PRODUCTS.map((product, index) => (
-          <ProductPreview key={index}
-            productImageSrc={product.productImageSrc}
-            productName={product.productName} />
+        products?.map((product) => (
+          <Link to={`/product/${product.id}`} key={product.id}>
+            <ProductPreview
+              productImageSrc={product.image_front_url}
+              productName={product.product_name} />
+          </Link>
         ))
       }
     </div>
