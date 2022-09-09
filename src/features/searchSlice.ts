@@ -2,11 +2,11 @@ import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 
 interface searchState {
-  searchQuery: string
+  searchQuery: string;
 }
 
 const initialState: searchState = {
-  searchQuery: '',
+  searchQuery: ''
 };
 
 export const searchSlice = createSlice({
@@ -16,10 +16,9 @@ export const searchSlice = createSlice({
     setSearchQuery: (state, action: PayloadAction<string>) => {
       state.searchQuery = action.payload;
     }
-  },
+  }
 });
 
 export const { setSearchQuery } = searchSlice.actions;
-
 
 export default searchSlice.reducer;

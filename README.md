@@ -10,7 +10,6 @@ Mockups & styles: https://www.figma.com/file/utAVlSZTZAGQ1grUPzT04T/RucheRucheGo
   git clone git@github.com:AitorChain/RucheRucheGo.git
 ```
 
-
 ```bash
   cd RucheRucheGo
 ```

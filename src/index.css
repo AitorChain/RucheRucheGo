@@ -4,12 +4,11 @@
 
 @import url('https://fonts.googleapis.com/css2?family=League+Gothic&display=swap');
 
-
 body {
   margin: 0;
   background: #ffe8d2;
   color: #5c272f;
-  font-family: "Segoe UI","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 21px;
   -webkit-font-smoothing: antialiased;
@@ -17,13 +16,12 @@ body {
 }
 
 .georgia {
-  font-family: Georgia,"Times New Roman",Times,serif;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .leagueGothic {
-  font-family: "League Gothic","Arial Narrow",Arial,sans;
+  font-family: 'League Gothic', 'Arial Narrow', Arial, sans;
 }
-
 
 /* Flex utility classes */
 

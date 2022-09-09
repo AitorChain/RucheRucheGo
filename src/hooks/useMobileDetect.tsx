@@ -15,7 +15,7 @@ const useMobileDetect = () => {
 
   const isMobile = width <= 768;
 
-  return {isMobile};
+  return { isMobile };
 };
 
 export default useMobileDetect;

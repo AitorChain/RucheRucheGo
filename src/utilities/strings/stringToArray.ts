@@ -1,4 +1,4 @@
-const stringToArray = (string: string, separator: string ) => {
+const stringToArray = (string: string, separator: string) => {
   return string.split(separator);
 };
 

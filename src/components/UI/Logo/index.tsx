@@ -1,21 +1,19 @@
-import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../assets/logo';
 
 interface LogoProps {
-  showFullLogo?: boolean,
-  className: string,
-  whiteLogo?: boolean,
+  showFullLogo?: boolean;
+  className: string;
+  whiteLogo?: boolean;
 }
 
-const Logo: FC<LogoProps> = ({ showFullLogo, className, whiteLogo }) => {
-
+const Logo = ({ showFullLogo, className, whiteLogo }: LogoProps) => {
   if (showFullLogo || whiteLogo) {
     return (
       <Link to="/">
-        <img 
+        <img
           src={whiteLogo ? logo.whiteLogoExpanded : logo.expandedLogo}
-          alt='expanded-logo'
+          alt="expanded-logo"
           className={`z-0 px-0 ${className}`}
         />
       </Link>
@@ -24,11 +22,7 @@ const Logo: FC<LogoProps> = ({ showFullLogo, className, whiteLogo }) => {
 
   return (
     <Link to="/">
-      <img 
-        src={logo.logo}
-        alt='logo'
-        className={`z-0 py-2 ${className}`}
-      />       
+      <img src={logo.logo} alt="logo" className={`z-0 py-2 ${className}`} />
     </Link>
   );
 };

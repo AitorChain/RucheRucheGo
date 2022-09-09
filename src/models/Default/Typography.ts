@@ -1,4 +1,4 @@
 export interface TypographyComponent {
-  children: string
-  className?: string,
+  children: string;
+  className?: string;
 }

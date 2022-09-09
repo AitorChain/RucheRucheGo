@@ -1,5 +1,3 @@
 import loaderOignon from './loader-oignon.gif';
 
-export {
-  loaderOignon
-};
+export { loaderOignon };

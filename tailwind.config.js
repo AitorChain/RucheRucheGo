@@ -1,9 +1,7 @@
 /* eslint-disable no-undef */
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    './src/**/*.{js,jsx,ts,tsx}',
-  ],
+  content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
       colors: {
@@ -13,9 +11,9 @@ module.exports = {
         red: '#5c272f '
       },
       boxShadow: {
-        'custom': '0 4px 6px rgba(0,0,0,0.5)',
+        custom: '0 4px 6px rgba(0,0,0,0.5)'
       }
-    },
+    }
   },
-  plugins: [],
+  plugins: []
 };
