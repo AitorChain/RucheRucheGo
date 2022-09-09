@@ -3,7 +3,7 @@ import { useAppDispatch, useAppSelector } from '../../../app/hooks/hooks';
 import { setSearchQuery } from '../../../features/searchSlice';
 import Button from '../Button';
 
-interface ISearchBar {
+interface SearchBarProps {
   showButton?: boolean,
   buttonText?: string,
   placeHolder: string,
@@ -14,7 +14,7 @@ const defaultSubmitHandler = (event: FormEvent<HTMLFormElement>) => {
   event.preventDefault();
 };
 
-const SearchBar: FC<ISearchBar> = ({showButton, buttonText, placeHolder, submitHandler = defaultSubmitHandler }) => {
+const SearchBar: FC<SearchBarProps> = ({showButton, buttonText, placeHolder, submitHandler = defaultSubmitHandler }) => {
   const { searchQuery } = useAppSelector(state => state.search);
 
   const dispatch = useAppDispatch();

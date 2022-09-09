@@ -2,13 +2,13 @@ import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../assets/logo';
 
-interface ILogo {
+interface LogoProps {
   showFullLogo?: boolean,
   className: string,
   whiteLogo?: boolean,
 }
 
-const Logo: FC<ILogo> = ({ showFullLogo, className, whiteLogo }) => {
+const Logo: FC<LogoProps> = ({ showFullLogo, className, whiteLogo }) => {
 
   if (showFullLogo || whiteLogo) {
     return (

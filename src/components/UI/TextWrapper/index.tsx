@@ -1,11 +1,7 @@
 import { FC } from 'react';
+import { ComposedFCWithStyles } from '../../../models/Default/ComposedFCWithStyles';
 
-interface ITextWrapper {
-  children: JSX.Element | JSX.Element[] | string
-  className: string
-}
-
-const TextWrapper: FC<ITextWrapper> = ({children, className}) => {
+const TextWrapper: FC<ComposedFCWithStyles> = ({children, className}) => {
   return (
     <div className={`bg-white ${className}`}>{children}</div>
   );

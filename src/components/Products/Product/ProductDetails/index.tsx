@@ -21,6 +21,14 @@ const ProductDetails: FC<IProductDetails> = ({product}) => {
   const allergens = product?.['allergens_hierarchy'];
   const ingredients = product?.['ingredients_text'];
 
+  const detailsAreEmpty = !categories && allergens.length === 0 && !ingredients;
+
+  const showNoDetailsMessage = () => {
+    return (
+      <Paragraph className='flexCenter'>There are no details for this product.</Paragraph>
+    );
+  };
+
   const showIngredients = () => {
     return (
       <DetailsSection categorieName='Ingredients'>
@@ -63,6 +71,7 @@ const ProductDetails: FC<IProductDetails> = ({product}) => {
         {ingredients && showIngredients()}
         {categories && showCategories()}
         {allergens.length !== 0 && showAllergens()}
+        {detailsAreEmpty && showNoDetailsMessage()}
       </TextWrapper>
     </Card>
   );

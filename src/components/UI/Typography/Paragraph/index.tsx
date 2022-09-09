@@ -1,12 +1,9 @@
 import { FC } from 'react';
+import { TypographyComponent } from '../../../../models/Default/Typography';
 
-interface IParagraph {
-  children: string
-}
-
-const Paragraph: FC<IParagraph> = ({children}) => {
+const Paragraph: FC<TypographyComponent> = ({children, className}) => {
   return (
-    <p className='text-black text-lg text-justify'>{children}</p>
+    <p className={`text-black text-lg text-justify ${className}`}>{children}</p>
   );
 };
 

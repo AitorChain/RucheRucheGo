@@ -1,11 +1,7 @@
 import { FC } from 'react';
+import { ComposedFCWithStyles } from '../../../models/Default/ComposedFCWithStyles';
 
-interface ICard {
-  className?: string,
-  children: JSX.Element[] | JSX.Element
-}
-
-const Card: FC<ICard> = ({children, className}) => {
+const Card: FC<ComposedFCWithStyles> = ({children, className}) => {
   return (
     <div className={`rounded-md shadow-custom z-0 ${className}`}>
       {children}

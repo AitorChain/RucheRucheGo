@@ -1,12 +1,11 @@
 import { FC } from 'react';
+import { ComposedFCWithStyles } from '../../../../../models/Default/ComposedFCWithStyles';
 
-interface IDetailsSection {
-  children: JSX.Element | JSX.Element[] | string
+interface DetailsSectionProps extends ComposedFCWithStyles {
   categorieName: string
-  className?: string
 }
 
-const DetailsSection: FC<IDetailsSection> = ({children, categorieName, className}) => {
+const DetailsSection: FC<DetailsSectionProps> = ({children, categorieName, className}) => {
   return (
     <div className='flex flex-col gap-3'>
       <h2 className='text-3xl georgia text-center font-normal text-red'>{categorieName}</h2>

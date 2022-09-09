@@ -4,12 +4,12 @@ import useMobileDetect from '../../hooks/useMobileDetect';
 import Logo from '../UI/Logo';
 import SearchBar from '../UI/SearchBar';
 
-interface INavbar {
+interface NavbarProps {
   showSearchBar: boolean,
   whiteLogo?: boolean,
 }
 
-const Navbar: FC<INavbar> = ({showSearchBar, whiteLogo}) => {
+const Navbar: FC<NavbarProps> = ({showSearchBar, whiteLogo}) => {
   const { isMobile } = useMobileDetect();
 
   /* 
