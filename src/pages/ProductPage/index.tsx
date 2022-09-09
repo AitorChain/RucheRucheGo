@@ -25,7 +25,7 @@ const ProductPage = () => {
         showSearchBar={false}
         whiteLogo
       />
-      <PageTitle className='text-white text-center'>{data?.product['product_name']}</PageTitle>
+      <PageTitle className='text-white text-center'>{data?.product['product_name'].toUpperCase()}</PageTitle>
       <main>
         {isLoading && <LoadingSpinner />}
         {error && <h2 className='text-2xl'>Il y a eu un erreur. Réesayez plus tard.</h2>}

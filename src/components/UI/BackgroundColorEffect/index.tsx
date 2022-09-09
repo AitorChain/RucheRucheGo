@@ -1,8 +1,8 @@
 import { FC } from 'react';
 
 interface IBackgroundColorEffect {
-  color: string,
-  height: string,
+  color?: string,
+  height?: string,
 }
 
 const BackgroundColorEffect: FC<IBackgroundColorEffect> = ({color = 'bg-purple', height = 'h-64'}) => {

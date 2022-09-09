@@ -13,7 +13,7 @@ const ProductPreview: FC<IProductPreview> = ({productImageSrc, productName}) => 
     setIsHover((prevState) => !prevState);
   };
 
-  const imgStyles = `object-cover w-full h-64 sm:w-52 sm:h-56 rounded-md rounded-b-none transition duration-100 ease-in-out ${isHover && 'brightness-[.35]	'}`;
+  const imgStyles = `object-cover w-full h-64 sm:h-56 rounded-md rounded-b-none transition duration-100 ease-in-out ${isHover && 'brightness-[.35]	'}`;
 
   const textOnHover = <div className='absolute text-center text-white text-xl mb-8 transition ease-in-out duration-500 font-bold georgia'>Clickez pour me<br/>decouvrir!</div>;
 
@@ -26,6 +26,7 @@ const ProductPreview: FC<IProductPreview> = ({productImageSrc, productName}) => 
       <img 
         src={productImageSrc || productPlaceholder}
         alt={productName}
+        
         className={imgStyles} />
 
       {isHover && textOnHover}
