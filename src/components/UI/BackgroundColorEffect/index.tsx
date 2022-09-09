@@ -1,6 +1,6 @@
 interface BackgroundColorEffectProps {
-  color?: string;
-  height?: string;
+  color: string;
+  height: string;
 }
 
 const BackgroundColorEffect = ({
