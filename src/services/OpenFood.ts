@@ -1,28 +1,19 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { Product, Products } from '../models/Products';
 
 export interface IProductsResult {
   count: number,
   page: number,
   page_count: number,
   page_size: number,
-  products: {
-    id: number,
-    image_front_url: string,
-    product_name: string
-  }[]
+  products: Products[]
 }
 
 export interface IProductResult {
   code: number,
   status: number,
   status_verbose: string,
-  product: {
-    allergens_hierarchy: string[],
-    categories: string,
-    image_front_url: string,
-    product_name: string
-    ingredients_text: string
-  }[]
+  product: Product[]
 }
 
 export const openFoodApi = createApi({

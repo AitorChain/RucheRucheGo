@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import { skipToken } from '@reduxjs/toolkit/dist/query';
 import { useParams } from 'react-router-dom';
 import { useGetProductByIdQuery } from '../../services/OpenFood';
@@ -8,8 +9,7 @@ import { PageTitle } from '../../components/UI/Typography';
 import { ProductDetails, ProductImage } from '../../components/Products/Product';
 import productPlaceholder from '../../assets/product-placeholder.jpg';
 
-
-const ProductPage = () => {
+const ProductPage: FC = () => {
 
   const { id } = useParams();
 

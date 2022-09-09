@@ -1,14 +1,11 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
+import { Products } from '../../../models/Products';
 
 import { ProductPreview } from '../Product';
 
 interface IProductsList {
-  products: {
-    id: number,
-    image_front_url: string,
-    product_name: string
-  }[] | undefined
+  products: Products[]
 }
 
 

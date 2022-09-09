@@ -4,8 +4,9 @@ import { useGetProductsQuery } from '../../services/OpenFood';
 import Navbar from '../../components/Navbar';
 import ProductsList from '../../components/Products/ProductsList';
 import { LoadingSpinner } from '../../components/UI';
+import { FC } from 'react';
 
-const SearchPage = () => {
+const SearchPage: FC = () => {
   const { searchQuery } = useAppSelector(state => state.search);
   const { data, error, isLoading } = useGetProductsQuery(searchQuery);
 
@@ -20,7 +21,7 @@ const SearchPage = () => {
 
         {error && <h2 className='text-2xl'>Il y a eu un erreur. Réesayez plus tard.</h2>}
 
-        {data?.products.length !== 0 && <ProductsList products={data?.products}/>}
+        {data?.products.length !== 0 && <ProductsList products={data!.products}/>}
 
         {data?.products.length === 0 && <h2 className='text-2xl'>Aucun resultat trouvé</h2>}
 

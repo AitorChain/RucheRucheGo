@@ -1,11 +1,11 @@
-import { FormEvent, useEffect } from 'react';
+import { FC, FormEvent, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../app/hooks/hooks';
 import Logo from '../../components/UI/Logo';
 import SearchBar from '../../components/UI/SearchBar';
 import { setSearchQuery } from '../../features/searchSlice';
 
-const Homepage = () => {
+const Homepage: FC = () => {
   const { searchQuery } = useAppSelector(state => state.search);
   const dispatch = useAppDispatch();
 

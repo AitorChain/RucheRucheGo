@@ -1,12 +1,8 @@
 import { FC } from 'react';
+import { ProductImageAndName } from '../../../../models/Products';
 import { Card } from '../../../UI';
 
-interface IProductImage {
-  productImageSrc: string,
-  productName: string,
-}
-
-const ProductImage: FC<IProductImage> = ({productImageSrc, productName}) => {
+const ProductImage: FC<ProductImageAndName> = ({productImageSrc, productName}) => {
 
   return (
     <Card>

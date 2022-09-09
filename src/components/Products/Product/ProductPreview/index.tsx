@@ -1,12 +1,8 @@
 import { FC, useState } from 'react';
 import productPlaceholder from '../../../../assets/product-placeholder.jpg';
-
-interface IProductPreview {
-  productImageSrc: string,
-  productName: string,
-}
+import { ProductImageAndName } from '../../../../models/Products';
  
-const ProductPreview: FC<IProductPreview> = ({productImageSrc, productName}) => {
+const ProductPreview: FC<ProductImageAndName> = ({productImageSrc, productName}) => {
   const [isHover, setIsHover] = useState(false);
 
   const hoverHandler = () => {
