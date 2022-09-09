@@ -21,9 +21,9 @@ const SearchPage: FC = () => {
 
         {error && <h2 className='text-2xl'>Il y a eu un erreur. Réesayez plus tard.</h2>}
 
-        {data?.products.length !== 0 && <ProductsList products={data!.products}/>}
+        {data?.products?.length !== 0 && <ProductsList products={data?.products}/>}
 
-        {data?.products.length === 0 && <h2 className='text-2xl'>Aucun resultat trouvé</h2>}
+        {data?.products?.length === 0 && <h2 className='text-2xl'>Aucun resultat trouvé</h2>}
 
       </main>
     </div>
