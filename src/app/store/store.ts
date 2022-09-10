@@ -6,8 +6,8 @@ import searchReducer from '../../features/searchSlice';
 export const store = configureStore({
   reducer: {
     [openFoodApi.reducerPath]: openFoodApi.reducer,
-    search: searchReducer
-  }
+    search: searchReducer,
+  },
 });
 
 export type RootState = ReturnType<typeof store.getState>;

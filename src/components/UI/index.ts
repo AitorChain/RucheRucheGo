@@ -15,5 +15,5 @@ export {
   Logo,
   LoadingSpinner,
   SearchBar,
-  TextWrapper
+  TextWrapper,
 };

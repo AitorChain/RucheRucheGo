@@ -22,7 +22,8 @@ const Logo = ({ showFullLogo, className, whiteLogo }: LogoProps) => {
 
   return (
     <Link to="/">
-      <img src={logo.logo} alt="logo" className={`z-0 py-2 ${className}`} />
+      <img src={logo.logo} alt="logo"
+        className={`z-0 py-2 ${className}`} />
     </Link>
   );
 };

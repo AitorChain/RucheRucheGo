@@ -11,8 +11,8 @@ interface NavbarProps {
 const Navbar = ({ showSearchBar, whiteLogo }: NavbarProps) => {
   const { isMobile } = useMobileDetect();
 
-  /* 
-    On utilise le custom hook UseMobileDetect pour afficher dynamiquement le logo. 
+  /*
+    On utilise le custom hook UseMobileDetect pour afficher dynamiquement le logo.
     On utilise aussi la props whiteLogo pour changer le color du logo.
     Note: comme je n'ai reussi a trouver que la version "expanded" de votre logo, je vais l'utiliser dans les deux cas.
   */

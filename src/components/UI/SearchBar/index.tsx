@@ -1,4 +1,6 @@
-import { ChangeEvent, FocusEvent, FocusEventHandler, FormEvent, FormEventHandler } from 'react';
+import {
+  ChangeEvent, FocusEvent, FocusEventHandler, FormEvent, FormEventHandler,
+} from 'react';
 import { useAppDispatch, useAppSelector } from '../../../app/hooks/hooks';
 import { setSearchQuery } from '../../../features/searchSlice';
 import Button from '../Button';
@@ -20,7 +22,7 @@ const SearchBar = ({
   buttonText,
   placeHolder,
   submitHandler = defaultHandler,
-  focusHandler = defaultHandler
+  focusHandler = defaultHandler,
 }: SearchBarProps) => {
   const { searchQuery } = useAppSelector((state) => state.search);
 

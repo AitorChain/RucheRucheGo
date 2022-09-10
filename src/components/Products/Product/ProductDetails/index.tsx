@@ -16,17 +16,13 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
 
   const detailsAreEmpty = !categories && allergens.length === 0 && !ingredients;
 
-  const showNoDetailsMessage = () => {
-    return <Paragraph className="flexCenter">There are no details for this product.</Paragraph>;
-  };
+  const showNoDetailsMessage = () => <Paragraph className="flexCenter">There are no details for this product.</Paragraph>;
 
-  const showIngredients = () => {
-    return (
-      <DetailsSection categorieName="Ingredients">
-        <Paragraph>{ingredients}</Paragraph>
-      </DetailsSection>
-    );
-  };
+  const showIngredients = () => (
+    <DetailsSection categorieName="Ingredients">
+      <Paragraph>{ingredients}</Paragraph>
+    </DetailsSection>
+  );
 
   const showCategories = () => {
     const arrayCategories = stringToArray(categories, ',');
@@ -34,7 +30,8 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
     return (
       <DetailsSection
         categorieName="Categories"
-        className="flexCenter md:flexStartCenter flex-row flex-wrap gap-y-2 gap-x-4">
+        className="flexCenter md:flexStartCenter flex-row flex-wrap gap-y-2 gap-x-4"
+      >
         {arrayCategories.map((categorie, index) => (
           <ItemWrapper key={index} className="bg-purple text-white">
             {categorie}
@@ -50,7 +47,8 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
     return (
       <DetailsSection
         categorieName="Allergènes"
-        className="flexCenter md:flexStartCenter flex-row flex-wrap gap-y-2 gap-x-4">
+        className="flexCenter md:flexStartCenter flex-row flex-wrap gap-y-2 gap-x-4"
+      >
         {formattedAlergenes.map((categorie, index) => (
           <ItemWrapper key={index} className="bg-lightPink text-black text-opacity-80">
             {categorie}

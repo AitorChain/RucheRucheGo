@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 enum Phase {
   Typing,
   Pausing,
-  Deleting
+  Deleting,
 }
 
 const useTyped = (phrases: string[], typingInterval = 70, pauseMS = 900, deletingInterval = 50) => {
@@ -12,25 +12,25 @@ const useTyped = (phrases: string[], typingInterval = 70, pauseMS = 900, deletin
   const [phase, setPhase] = useState(Phase.Typing);
   const [typedPhrase, setTypedPhrase] = useState('');
 
-  //This function will be exported and by calling it we could set the last array string as the fixed placeholder when the user focus the input
+  // This function will be exported and by calling it we could set the last array string as the fixed placeholder when the user focus the input
   const focusInputHandler = () => {
     setTypedPhrase(phrases[phrases.length - 1]);
   };
 
   useEffect(() => {
-    //Adds a delay when the user sees the typing animation for the first time
+    // Adds a delay when the user sees the typing animation for the first time
     if (isFirstRender) {
       setIsFirstRender(false);
       setPhase(Phase.Pausing);
     }
 
-    //Stops the animation when the loop has reach the last string of the array
+    // Stops the animation when the loop has reach the last string of the array
     if (typedPhrase === phrases[phrases.length - 1]) {
       return;
     }
 
-    //Typing phase
-    //Gets the new piece of phrase until its completed, then it sets the phase to Pausing
+    // Typing phase
+    // Gets the new piece of phrase until its completed, then it sets the phase to Pausing
     if (phase === Phase.Typing) {
       const nextTypedPhrase = phrases[selectedIndex].slice(0, typedPhrase.length + 1);
 
@@ -46,7 +46,7 @@ const useTyped = (phrases: string[], typingInterval = 70, pauseMS = 900, deletin
       return () => clearTimeout(timeout);
     }
 
-    //Same logic as in Typing phase but in the inverse sense
+    // Same logic as in Typing phase but in the inverse sense
     if (phase === Phase.Deleting) {
       if (!typedPhrase) {
         const nextIndex = selectedIndex + 1;

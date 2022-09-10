@@ -6,7 +6,7 @@ interface searchState {
 }
 
 const initialState: searchState = {
-  searchQuery: ''
+  searchQuery: '',
 };
 
 export const searchSlice = createSlice({
@@ -15,8 +15,8 @@ export const searchSlice = createSlice({
   reducers: {
     setSearchQuery: (state, action: PayloadAction<string>) => {
       state.searchQuery = action.payload;
-    }
-  }
+    },
+  },
 });
 
 export const { setSearchQuery } = searchSlice.actions;

@@ -18,7 +18,7 @@ const ProductPage = () => {
       <BackgroundColorEffect color="bg-purple" height="h-56" />
       <Navbar showSearchBar={false} whiteLogo />
       <PageTitle className="text-white text-center">
-        {data?.product['product_name'].toUpperCase()}
+        {data?.product?.['product_name'].toUpperCase()}
       </PageTitle>
       <main>
         {isLoading && <LoadingSpinner randomLoader />}
@@ -26,10 +26,10 @@ const ProductPage = () => {
         {data && (
           <div className="flexCenter flex-col lg:flex lg:items-start lg:flexCenterStart lg:flex-row gap-8 lg:gap-28 mb-8 ">
             <ProductImage
-              productImageSrc={data?.product['image_front_url'] || productPlaceholder}
-              productName={data?.product['product_name']}
+              productImageSrc={data?.product?.['image_front_url'] || productPlaceholder}
+              productName={data?.product?.['product_name']}
             />
-            <ProductDetails product={data?.['product']} />
+            <ProductDetails product={data?.product} />
           </div>
         )}
       </main>

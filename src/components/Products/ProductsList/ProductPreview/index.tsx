@@ -2,7 +2,11 @@ import { useState } from 'react';
 import productPlaceholder from '../../../../assets/product-placeholder.jpg';
 import { ProductImageAndName } from '../../../../models/Products';
 
-const ProductPreview = ({ productImageSrc, productName }: ProductImageAndName) => {
+interface ProductImageAndNameProps extends ProductImageAndName {
+  className?: string;
+}
+
+const ProductPreview = ({ productImageSrc, productName, className }: ProductImageAndNameProps) => {
   const [isHover, setIsHover] = useState(false);
 
   const hoverHandler = () => {
@@ -23,11 +27,12 @@ const ProductPreview = ({ productImageSrc, productName }: ProductImageAndName) =
 
   return (
     <div
-      className="flexCenter flex-col rounded-md shadow-custom cursor-pointer"
+      className={`flexCenter flex-col rounded-md shadow-custom cursor-pointer ${className}`}
       onMouseEnter={hoverHandler}
       onMouseLeave={hoverHandler}
     >
-      <img src={productImageSrc || productPlaceholder} alt={productName} className={imgStyles} />
+      <img src={productImageSrc || productPlaceholder} alt={productName}
+        className={imgStyles} />
 
       {isHover && textOnHover}
 

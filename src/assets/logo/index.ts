@@ -5,5 +5,5 @@ import whiteLogoExpanded from './white-logo-expanded.png';
 export default {
   expandedLogo,
   whiteLogoExpanded,
-  logo
+  logo,
 };

@@ -3,7 +3,7 @@ import {
   loaderNoix,
   loaderOignon,
   loaderPain,
-  loaderWhite
+  loaderWhite,
 } from '../../../assets/loaders';
 import pickRandomFromArray from '../../../utilities/arrays/pickRandomFromArray';
 
@@ -24,7 +24,8 @@ const LoadingSpinner = ({ randomLoader = false, width = 75 }: LoadingSpinnerProp
 
   return (
     <div className="absolute top-1/2 left-1/2 translate-x-[-50%] lg:translate-y-[-50%] translate-y-[-50%] md:translate-y-[-30%] z-0">
-      <img src={loader} alt="loader" width={width} />
+      <img src={loader} alt="loader"
+        width={width} />
     </div>
   );
 };
