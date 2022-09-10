@@ -34,8 +34,7 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
     return (
       <DetailsSection
         categorieName="Categories"
-        className="flexCenter md:flexStartCenter flex-row flex-wrap gap-y-2 gap-x-4"
-      >
+        className="flexCenter md:flexStartCenter flex-row flex-wrap gap-y-2 gap-x-4">
         {arrayCategories.map((categorie, index) => (
           <ItemWrapper key={index} className="bg-purple text-white">
             {categorie}
@@ -51,8 +50,7 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
     return (
       <DetailsSection
         categorieName="Allergènes"
-        className="flexCenter md:flexStartCenter flex-row flex-wrap gap-y-2 gap-x-4"
-      >
+        className="flexCenter md:flexStartCenter flex-row flex-wrap gap-y-2 gap-x-4">
         {formattedAlergenes.map((categorie, index) => (
           <ItemWrapper key={index} className="bg-lightPink text-black text-opacity-80">
             {categorie}

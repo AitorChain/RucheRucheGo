@@ -21,7 +21,7 @@ const ProductPage = () => {
         {data?.product['product_name'].toUpperCase()}
       </PageTitle>
       <main>
-        {isLoading && <LoadingSpinner />}
+        {isLoading && <LoadingSpinner randomLoader />}
         {error && <h2 className="text-2xl">Il y a eu un erreur. Réesayez plus tard.</h2>}
         {data && (
           <div className="flexCenter flex-col lg:flex lg:items-start lg:flexCenterStart lg:flex-row gap-8 lg:gap-28 mb-8 ">

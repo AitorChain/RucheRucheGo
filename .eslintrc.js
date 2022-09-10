@@ -25,12 +25,6 @@ module.exports = {
         unnamedComponents: 'arrow-function'
       }
     ],
-    'react/jsx-props-no-spreading': 'off',
-    'react/jsx-one-expression-per-line': 'off',
-    'react/react-in-jsx-scope': 'off',
-
-    indent: ['error', 2],
-    'linebreak-style': ['error', 'unix'],
-    semi: ['error', 'always']
+    'react/react-in-jsx-scope': 'off'
   }
 };

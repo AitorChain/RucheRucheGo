@@ -13,7 +13,7 @@ const SearchPage = () => {
     <div>
       <Navbar showSearchBar />
       <main className="flexCenter my-8 md:my-16">
-        {isLoading && <LoadingSpinner />}
+        {isLoading && <LoadingSpinner randomLoader />}
 
         {error && <h2 className="text-2xl">Il y a eu un erreur. Réesayez plus tard.</h2>}
 
