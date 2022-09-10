@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, FormEventHandler } from 'react';
+import { ChangeEvent, FocusEvent, FocusEventHandler, FormEvent, FormEventHandler } from 'react';
 import { useAppDispatch, useAppSelector } from '../../../app/hooks/hooks';
 import { setSearchQuery } from '../../../features/searchSlice';
 import Button from '../Button';
@@ -8,9 +8,10 @@ interface SearchBarProps {
   buttonText?: string;
   placeHolder: string;
   submitHandler?: FormEventHandler<HTMLFormElement>;
+  focusHandler?: FocusEventHandler<HTMLInputElement>;
 }
 
-const defaultSubmitHandler = (event: FormEvent<HTMLFormElement>) => {
+const defaultHandler = (event: FormEvent<HTMLFormElement> | FocusEvent<HTMLInputElement>) => {
   event.preventDefault();
 };
 
@@ -18,7 +19,8 @@ const SearchBar = ({
   showButton,
   buttonText,
   placeHolder,
-  submitHandler = defaultSubmitHandler
+  submitHandler = defaultHandler,
+  focusHandler = defaultHandler
 }: SearchBarProps) => {
   const { searchQuery } = useAppSelector((state) => state.search);
 
@@ -35,6 +37,7 @@ const SearchBar = ({
         type="text"
         id="search"
         value={searchQuery}
+        onFocus={focusHandler}
         onChange={userKeystrokeHandler}
         name="searchInput"
         placeholder={placeHolder}

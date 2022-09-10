@@ -4,59 +4,62 @@
 
 @import url('https://fonts.googleapis.com/css2?family=League+Gothic&display=swap');
 
-body {
-  margin: 0;
-  background: #ffe8d2;
-  color: #5c272f;
-  font-family: 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  line-height: 21px;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@layer base {
+  body {
+    margin: 0;
+    background: #ffe8d2;
+    color: #5c272f;
+    font-family: 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 21px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 }
 
-.georgia {
-  font-family: Georgia, 'Times New Roman', Times, serif;
+@layer utilities {
+  .flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .flexBetween {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .flexStart {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  
+  .flexStartCenter {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  
+  .flexBetweenStart {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .flexCenterStart {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .georgia {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+  
+  .leagueGothic {
+    font-family: 'League Gothic', 'Arial Narrow', Arial, sans;
+  }
 }
 
-.leagueGothic {
-  font-family: 'League Gothic', 'Arial Narrow', Arial, sans;
-}
-
-/* Flex utility classes */
-
-.flexCenter {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.flexBetween {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.flexStart {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-}
-
-.flexStartCenter {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-.flexBetweenStart {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-
-.flexCenterStart {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-}

@@ -4,6 +4,7 @@ import { useAppDispatch, useAppSelector } from '../../app/hooks/hooks';
 import Logo from '../../components/UI/Logo';
 import SearchBar from '../../components/UI/SearchBar';
 import { setSearchQuery } from '../../features/searchSlice';
+import useTyped from '../../utilities/UI/useTyped';
 
 const Homepage = () => {
   const { searchQuery } = useAppSelector((state) => state.search);
@@ -23,6 +24,10 @@ const Homepage = () => {
     }
   };
 
+  const placeholder = ['Haricots', 'Tomates', 'Pamplemousses', 'Recherche tes aliments preferés'];
+
+  const { typedPhrase: typedPlaceholder, focusInputHandler } = useTyped(placeholder);
+
   return (
     <div className="flexCenter flex-col gap-2 w-full md:h-screen md:mt-0 h-full mt-52 ">
       <div className="flex">
@@ -32,8 +37,9 @@ const Homepage = () => {
         <SearchBar
           showButton
           buttonText="Rechercher"
-          placeHolder="Qu'est-ce qu'on veut manger aujourd'hui?"
+          placeHolder={typedPlaceholder}
           submitHandler={searchSubmitHandler}
+          focusHandler={focusInputHandler}
         />
       </div>
     </div>
