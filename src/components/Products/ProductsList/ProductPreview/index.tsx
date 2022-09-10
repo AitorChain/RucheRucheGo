@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import productPlaceholder from '../../../../assets/product-placeholder.jpg';
 import { ProductImageAndName } from '../../../../models/Products';
+import OnHoverAnimation from '../../../UI/Animations/OnHoverAnimation';
 
 interface ProductImageAndNameProps extends ProductImageAndName {
   className?: string;
@@ -26,22 +27,24 @@ const ProductPreview = ({ productImageSrc, productName, className }: ProductImag
   );
 
   return (
-    <div
-      className={`flexCenter flex-col rounded-md shadow-custom cursor-pointer ${className}`}
-      onMouseEnter={hoverHandler}
-      onMouseLeave={hoverHandler}
-    >
-      <img src={productImageSrc || productPlaceholder} alt={productName}
-        className={imgStyles} />
+    <OnHoverAnimation>
+      <div
+        className={`flexCenter flex-col rounded-md shadow-custom cursor-pointer ${className}`}
+        onMouseEnter={hoverHandler}
+        onMouseLeave={hoverHandler}
+      >
+        <img src={productImageSrc || productPlaceholder} alt={productName}
+          className={imgStyles} />
 
-      {isHover && textOnHover}
+        {isHover && textOnHover}
 
-      <div className="px-2 py-2 w-full bg-red flexCenter rounded-b-md ">
-        <h3 className="leagueGothic text-white text-2xl truncate">
-          {productName?.toUpperCase() || 'Produit sans nom'}
-        </h3>
+        <div className="px-2 py-2 w-full bg-red flexCenter rounded-b-md ">
+          <h3 className="leagueGothic text-white text-2xl truncate">
+            {productName?.toUpperCase() || 'Produit sans nom'}
+          </h3>
+        </div>
       </div>
-    </div>
+    </OnHoverAnimation>
   );
 };
 
