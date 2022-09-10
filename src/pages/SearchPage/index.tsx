@@ -3,7 +3,7 @@ import { useGetProductsQuery } from '../../services/OpenFood';
 
 import Navbar from '../../components/Navbar';
 import ProductsList from '../../components/Products/ProductsList';
-import { LoadingSpinner } from '../../components/UI';
+import { BackgroundColorEffect, LoadingSpinner } from '../../components/UI';
 
 const SearchPage = () => {
   const { searchQuery } = useAppSelector((state) => state.search);
@@ -11,7 +11,8 @@ const SearchPage = () => {
 
   return (
     <div>
-      <Navbar showSearchBar />
+      <BackgroundColorEffect height="h-44 sm:h-60 lg:h-28 xl:h-28 " />
+      <Navbar whiteLogo showSearchBar />
       <main className="flexCenter my-8 md:my-16">
         {isLoading && <LoadingSpinner randomLoader />}
 

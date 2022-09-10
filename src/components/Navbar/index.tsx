@@ -20,18 +20,17 @@ const Navbar = ({ showSearchBar, whiteLogo }: NavbarProps) => {
     <div className="flexCenter z-[-1]">
       <Logo
         whiteLogo={whiteLogo}
-        showFullLogo
-        className={whiteLogo ? 'w-[40rem]' : 'w-[40rem] mt-1'}
+        className={whiteLogo ? 'w-[40rem]' : 'w-[40rem]'}
       />
     </div>
   ) : (
-    <div className="absolute top-0">
-      <Logo whiteLogo={whiteLogo} className={whiteLogo ? 'w-[15rem] mt-2' : ' w-[5rem]'} />
+    <div className="flex">
+      <Logo whiteLogo={whiteLogo} className='w-[18rem] mt-2 md:mt-[-7px] lg:mt-2 xl:absolute xl:top-0' />
     </div>
   );
 
   const searchBar = (
-    <div className="flex flexCenter my-4 md:my-8">
+    <div className="flexCenter lg:flexStartEnd xl:flexCenter mb-4 mt-6 md:mt-6 xl:my-6">
       <div className="w-[40rem]">
         <SearchBar placeHolder="Qu'est-ce qu'on veut manger aujourd'hui?" />
       </div>
@@ -39,7 +38,7 @@ const Navbar = ({ showSearchBar, whiteLogo }: NavbarProps) => {
   );
 
   return (
-    <div>
+    <div className='lg:flexBetween xl:block'>
       {logo}
       {showSearchBar && searchBar}
     </div>

@@ -6,7 +6,7 @@ enum Phase {
   Deleting,
 }
 
-const useTyped = (phrases: string[], typingInterval = 70, pauseMS = 900, deletingInterval = 50) => {
+const useTyped = (phrases: string[], typingInterval = 70, pauseMS = 500, deletingInterval = 50) => {
   const [isFirstRender, setIsFirstRender] = useState(true);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [phase, setPhase] = useState(Phase.Typing);

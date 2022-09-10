@@ -42,6 +42,12 @@
     align-items: center;
   }
 
+  .flexStartEnd {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
   .flexBetweenStart {
     display: flex;
     justify-content: space-between;
