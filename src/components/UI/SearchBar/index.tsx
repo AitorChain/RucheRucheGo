@@ -1,8 +1,10 @@
 import {
   ChangeEvent, FocusEvent, FocusEventHandler, FormEvent, FormEventHandler,
 } from 'react';
+import { motion } from 'framer-motion';
 import { useAppDispatch, useAppSelector } from '../../../app/hooks/hooks';
 import { setSearchQuery } from '../../../features/searchSlice';
+import OnHoverAnimation from '../Animations/OnHoverAnimation';
 import Button from '../Button';
 
 interface SearchBarProps {
@@ -35,7 +37,9 @@ const SearchBar = ({
   return (
     <form className="flexCenter flex-col" onSubmit={submitHandler}>
       <label htmlFor="searchInput" />
-      <input
+      <motion.input
+        whileHover={{ scale: 1.01 }}
+        transition={{ type: 'spring', stiffness: 400, damping: 10 }}
         type="text"
         id="search"
         value={searchQuery}
@@ -43,15 +47,17 @@ const SearchBar = ({
         onChange={userKeystrokeHandler}
         name="searchInput"
         placeholder={placeHolder}
-        className="py-4 px-4 w-full placeholder-red placeholder-opacity-50 transition ease-in-out shadow-lg focus:shadow-sm outline-none border-2 border-lightPink text-lg focus:scale-[1.02] rounded-sm"
+        className="py-4 px-4 w-full placeholder-red placeholder-opacity-50 shadow-lg outline-none border-2 border-lightPink text-lg rounded-sm"
       />
 
       {/* ATTENTION - Pour montrer le button il faut passer les props showButton ET buttonText au composant SearchBar */}
 
       {showButton && buttonText && (
-        <div className="mt-8">
-          <Button buttonText={buttonText} />
-        </div>
+        <OnHoverAnimation>
+          <div className="mt-8">
+            <Button buttonText={buttonText} />
+          </div>
+        </OnHoverAnimation>
       )}
     </form>
   );

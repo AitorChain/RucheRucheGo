@@ -1,5 +1,5 @@
 import { Product } from '../../../../models/Products';
-import { substringStringsOfArray, stringToArray } from '../../../../utilities/strings';
+import { substringStringsOfArray, stringToArray, capitalizeString } from '../../../../utilities/strings';
 
 import { TextWrapper, ItemWrapper, Card } from '../../../UI';
 import { Paragraph } from '../../../UI/Typography';
@@ -18,11 +18,15 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
 
   const showNoDetailsMessage = () => <Paragraph className="flexCenter">There are no details for this product.</Paragraph>;
 
-  const showIngredients = () => (
-    <DetailsSection categorieName="Ingredients">
-      <Paragraph>{ingredients}</Paragraph>
-    </DetailsSection>
-  );
+  const showIngredients = () => {
+    const capitalizedIngredients = capitalizeString(ingredients);
+
+    return (
+      <DetailsSection categorieName="Ingredients">
+        <Paragraph>{capitalizedIngredients}</Paragraph>
+      </DetailsSection>
+    );
+  };
 
   const showCategories = () => {
     const arrayCategories = stringToArray(categories, ',');
@@ -30,7 +34,7 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
     return (
       <DetailsSection
         categorieName="Categories"
-        className="flexCenter md:flexStartCenter flex-row flex-wrap gap-y-2 gap-x-4"
+        className="flexCenter flex-row flex-wrap gap-y-2 gap-x-4"
       >
         {arrayCategories.map((categorie, index) => (
           <ItemWrapper key={index} className="bg-purple text-white">
@@ -47,7 +51,7 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
     return (
       <DetailsSection
         categorieName="Allergènes"
-        className="flexCenter md:flexStartCenter flex-row flex-wrap gap-y-2 gap-x-4"
+        className="flexCenter flex-row flex-wrap gap-y-2 gap-x-4"
       >
         {formattedAlergenes.map((categorie, index) => (
           <ItemWrapper key={index} className="bg-lightPink text-black text-opacity-80">
@@ -60,7 +64,7 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
 
   return (
     <Card className="w-auto lg:w-[35rem]">
-      <TextWrapper className="py-4 px-6 lg:pt-5 lg:pb-7 lg:px-8 flex flex-col gap-4">
+      <TextWrapper className="py-4 px-4 lg:pt-5 lg:pb-7 lg:px-6 flex flex-col gap-4">
         {ingredients && showIngredients()}
         {categories && showCategories()}
         {allergens.length !== 0 && showAllergens()}
