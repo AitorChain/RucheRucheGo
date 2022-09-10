@@ -7,7 +7,7 @@ enum Phase {
 }
 
 const TYPING_INTERVAL = 70;
-const PAUSE_MS = 1000;
+const PAUSE_MS = 900;
 const DELETING_INTERVAL = 50;
 
 const useTyped = (phrases: string[]) => {
