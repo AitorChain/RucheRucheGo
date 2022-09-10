@@ -6,11 +6,7 @@ enum Phase {
   Deleting
 }
 
-const TYPING_INTERVAL = 70;
-const PAUSE_MS = 900;
-const DELETING_INTERVAL = 50;
-
-const useTyped = (phrases: string[]) => {
+const useTyped = (phrases: string[], typingInterval = 70, pauseMS = 900, deletingInterval = 50) => {
   const [isFirstRender, setIsFirstRender] = useState(true);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [phase, setPhase] = useState(Phase.Typing);
@@ -45,7 +41,7 @@ const useTyped = (phrases: string[]) => {
 
       const timeout = setTimeout(() => {
         setTypedPhrase(nextTypedPhrase);
-      }, TYPING_INTERVAL);
+      }, typingInterval);
 
       return () => clearTimeout(timeout);
     }
@@ -63,7 +59,7 @@ const useTyped = (phrases: string[]) => {
 
       const timeout = setTimeout(() => {
         setTypedPhrase(nextRemaining);
-      }, DELETING_INTERVAL);
+      }, deletingInterval);
 
       return () => clearTimeout(timeout);
     }
@@ -72,7 +68,7 @@ const useTyped = (phrases: string[]) => {
     if (phase === Phase.Pausing) {
       const timeout = setTimeout(() => {
         setPhase(Phase.Deleting);
-      }, PAUSE_MS);
+      }, pauseMS);
 
       return () => clearTimeout(timeout);
     }

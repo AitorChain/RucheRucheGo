@@ -4,7 +4,7 @@ import { useAppDispatch, useAppSelector } from '../../app/hooks/hooks';
 import Logo from '../../components/UI/Logo';
 import SearchBar from '../../components/UI/SearchBar';
 import { setSearchQuery } from '../../features/searchSlice';
-import useTyped from '../../utilities/UI/useTyped';
+import useTyped from '../../hooks/useTyped';
 
 const Homepage = () => {
   const { searchQuery } = useAppSelector((state) => state.search);

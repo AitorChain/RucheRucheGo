@@ -23,25 +23,25 @@
     justify-content: center;
     align-items: center;
   }
-  
+
   .flexBetween {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
-  
+
   .flexStart {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
   }
-  
+
   .flexStartCenter {
     display: flex;
     justify-content: flex-start;
     align-items: center;
   }
-  
+
   .flexBetweenStart {
     display: flex;
     justify-content: space-between;
@@ -57,9 +57,8 @@
   .georgia {
     font-family: Georgia, 'Times New Roman', Times, serif;
   }
-  
+
   .leagueGothic {
     font-family: 'League Gothic', 'Arial Narrow', Arial, sans;
   }
 }
-
