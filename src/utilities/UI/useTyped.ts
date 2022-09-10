@@ -78,7 +78,7 @@ const useTyped = (phrases: string[]) => {
     }
   }, [typedPhrase, phase, selectedIndex]);
 
-  return { typedPhrase, focusInputHandler };
+  return [typedPhrase, focusInputHandler] as const;
 };
 
 export default useTyped;

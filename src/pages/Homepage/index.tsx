@@ -26,7 +26,7 @@ const Homepage = () => {
 
   const placeholder = ['Haricots', 'Tomates', 'Pamplemousses', 'Recherche tes aliments preferés'];
 
-  const { typedPhrase: typedPlaceholder, focusInputHandler } = useTyped(placeholder);
+  const [typedPlaceholder, focusInputHandler] = useTyped(placeholder);
 
   return (
     <div className="flexCenter flex-col gap-2 w-full md:h-screen md:mt-0 h-full mt-52 ">
