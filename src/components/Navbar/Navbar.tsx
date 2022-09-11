@@ -6,9 +6,10 @@ import SearchBar from '../UI/SearchBar/SearchBar';
 interface NavbarProps {
   showSearchBar: boolean;
   whiteLogo?: boolean;
+  backgroundColor?: string;
 }
 
-const Navbar = ({ showSearchBar, whiteLogo }: NavbarProps) => {
+const Navbar = ({ showSearchBar, whiteLogo, backgroundColor = 'bg-red' }: NavbarProps) => {
   const { isMobile } = useMobileDetect();
 
   /*
@@ -30,17 +31,19 @@ const Navbar = ({ showSearchBar, whiteLogo }: NavbarProps) => {
   );
 
   const searchBar = (
-    <div className="flexCenter lg:flexStartEnd xl:flexCenter mb-4 mt-6 md:mt-6 xl:my-6">
-      <div className="w-[40rem]">
+    <div className="flexCenter lg:flexStartEnd xl:flexCenter">
+      <div className="w-[40rem] mt-5 lg:mt-0">
         <SearchBar placeHolder="Qu'est-ce qu'on veut manger aujourd'hui?" />
       </div>
     </div>
   );
 
   return (
-    <div className='lg:flexBetween xl:block'>
-      {logo}
-      {showSearchBar && searchBar}
+    <div className={backgroundColor}>
+      <div className='pageMargins lg:flexBetween xl:block pb-6 py-3 lg:py-6'>
+        {logo}
+        {showSearchBar && searchBar}
+      </div>
     </div>
   );
 };

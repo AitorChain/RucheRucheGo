@@ -11,7 +11,7 @@ const ProductImage = ({ image, name }: ProductImageProps) => {
       <img
         src={image}
         alt={name}
-        className="object-cover w-96 h-96 rounded-md border-white border"
+        className="object-cover w-screen h-96 md:w-96 md:h-96 rounded-md border-white border"
       />
     </Card>
   );

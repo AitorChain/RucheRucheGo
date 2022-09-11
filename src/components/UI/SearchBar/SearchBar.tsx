@@ -47,7 +47,7 @@ const SearchBar = ({
         onChange={userKeystrokeHandler}
         name="searchInput"
         placeholder={placeHolder}
-        className="py-4 px-4 w-full placeholder-red placeholder-opacity-50 shadow-lg outline-none border-2 border-lightPink text-lg rounded-sm"
+        className="p-4 w-full placeholder-red placeholder-opacity-50 shadow-lg outline-none border-2 border-lightPink text-lg rounded-sm"
       />
 
       {/* ATTENTION - Pour montrer le button il faut passer les props showButton ET buttonText au composant SearchBar */}

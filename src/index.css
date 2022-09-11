@@ -67,4 +67,8 @@
   .leagueGothic {
     font-family: 'League Gothic', 'Arial Narrow', Arial, sans;
   }
+
+  .pageMargins {
+    @apply mx-2 md:mx-8;
+  }
 }

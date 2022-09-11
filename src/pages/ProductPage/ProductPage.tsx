@@ -45,16 +45,16 @@ const ProductPage = () => {
   );
 
   return (
-    <div>
-      <BackgroundColorEffect color="bg-purple" height="h-56" />
+    <>
+      <BackgroundColorEffect color="bg-red" height="h-56" />
       <Navbar showSearchBar={false} whiteLogo />
       {product?.name && pageTitle}
-      <main>
+      <main className='pageMargins'>
         {isLoading && <LoadingSpinner randomLoader />}
         {error && <h2 className="text-2xl">Il y a eu un erreur. Réesayez plus tard.</h2>}
         {product && pageInformation}
       </main>
-    </div>
+    </>
   );
 };
 
