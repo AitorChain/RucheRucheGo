@@ -32,7 +32,7 @@ const ProductPreview = ({ image, name, className }: ProductPreviewProps) => {
 
   const arrowVariants = {
     open: {
-      transform: 'rotate(180deg'
+      transform: 'rotate(180deg)'
     },
     close: {}
   };
@@ -43,42 +43,52 @@ const ProductPreview = ({ image, name, className }: ProductPreviewProps) => {
     <motion.div
       whileHover={{ scale: 1.2 }}
       whileTap={{ scale: 0.9 }}
-      transition={{ type: 'spring', stiffness: 400, damping: 17, delay: 0.6 }}
+      transition={{ type: 'spring', stiffness: 400, damping: 17, delay: 0.2 }}
       className={`flex flex-col w-full h-[14rem] overflow-y-hidden rounded-md shadow-custom cursor-pointer bg-white ${className}`}
       onMouseEnter={hoverHandler}
       onMouseLeave={hoverHandler}
     >
-      <motion.div initial="close" className='w-full'
+      <motion.div initial="close"
+        className='w-full'
         transition={{
-          duration: 0.5,
+          duration: 0.4,
+          delay: 0.6
         }}
         animate={isExpanded ? 'open' : 'close'}
         variants={imgVariants}>
         <img        
           src={image || productPlaceholder}
           alt={name}
-          className='object-cover h-full w-full rounded-md rounded-b-none' />
+          className='object-cover min-h-[14em] h-full w-full rounded-md rounded-b-none' />
       </motion.div>
 
       <div className='px-3 py-3 w-full bg-red flex flex-row'>
         <h3 className="text-white leagueGothic text-3xl leading-normal truncate w-full">
           {name?.toUpperCase() || 'Produit sans nom'}
         </h3>
-        <motion.div className='flexCenter'>
-          <MdKeyboardArrowUp size={45} className={'text-center text-white'} />
+        <motion.div initial={'close'}
+          animate={isExpanded ? 'open' : 'close'}
+          variants={arrowVariants}
+          className='flexCenter'
+          transition={{
+            duration: 0.2,
+            delay: 0.6
+          }}>
+          <MdKeyboardArrowUp size={45}
+            className={'text-center text-white'} />
         </motion.div>
 
         
       </div>
 
-      <motion.div layout variants={moreInfoVariants}
+      <motion.div layout
+        variants={moreInfoVariants}
         initial={'close'}
         animate={isExpanded ? 'open' : 'close'}
         className="px-3 py-3 w-full h-full bg-white rounded-b-md"
         transition={{
-          type: 'tween',
-          ease: 'easeIn',
-          duration: 0.5,
+          duration: 0.4,
+          delay: 0.6
         }}>
         <div className='flex flex-col'>
           <p>Hola amigo</p>
