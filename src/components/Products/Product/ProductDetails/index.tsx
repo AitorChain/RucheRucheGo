@@ -1,5 +1,5 @@
 import { AdaptedProduct } from '../../../../models/UI/Products.types';
-import { substringStringsOfArray, stringToArray, capitalizeString } from '../../../../utilities/strings';
+import isDefinedAndNotEmpty from '../../../../utilities/checks/isDefinedAndNotEmpty';
 
 import { TextWrapper, ItemWrapper, Card } from '../../../UI';
 import { Paragraph } from '../../../UI/Typography';
@@ -12,12 +12,6 @@ export interface ProductDetailsProps {
 const ProductDetails = ({ product }: ProductDetailsProps) => {
   const {categories, allergens, ingredients} = product;
 
-  const detailsAreEmpty = !categories && allergens.length === 0 && !ingredients;
-
-  const noDetailsMessage = (
-    <Paragraph className="flexCenter">There are no details for this product.</Paragraph>
-  );
-
   const CARD_STYLES = 'w-auto lg:w-[35rem]';
 
   const ingredientsSection = (
@@ -29,7 +23,6 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
       </TextWrapper>
     </Card>
   );
-
 
   const categoriesSection = (
     <Card className={CARD_STYLES}>
@@ -65,11 +58,17 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
     </Card>
   );
 
+  const detailsAreEmpty = !categories && allergens.length === 0 && !ingredients;
+
+  const noDetailsMessage = (
+    <Paragraph className="flexCenter">There are no details for this product.</Paragraph>
+  );
+
   return (
     <div className="w-auto lg:w-[35rem] flex flex-col gap-6">
-      {ingredients && ingredientsSection}
-      {categories && categoriesSection}
-      {allergens.length !== 0 && allergensSection}
+      {isDefinedAndNotEmpty(ingredients) && ingredientsSection}
+      {isDefinedAndNotEmpty(categories) && categoriesSection}
+      {isDefinedAndNotEmpty(allergens) && allergensSection}
       {detailsAreEmpty && noDetailsMessage}
     </div>
   );

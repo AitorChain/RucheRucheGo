@@ -39,8 +39,8 @@ const ProductPage = () => {
   const pageInformation = (
     <div className="flexCenter flex-col lg:flex lg:items-start lg:flexCenterStart lg:flex-row gap-8 lg:gap-28 mb-8 ">
       <ProductImage
-        image={product!.image || productPlaceholder}
-        name={product!.name}
+        image={product?.image || productPlaceholder}
+        name={product?.name || 'Produit sans nom'}
       />
       <ProductDetails product={product!} />
     </div>
