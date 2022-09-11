@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { useAppDispatch, useAppSelector } from '../../../app/hooks/hooks';
 import { setSearchQuery } from '../../../features/searchSlice';
 import OnHoverAnimation from '../Animations/OnHoverAnimation';
-import Button from '../Button';
+import Button from '../Button/Button';
 
 interface SearchBarProps {
   showButton?: boolean;

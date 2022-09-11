@@ -1,4 +1,2 @@
-import PageTitle from './PageTitle';
-import Paragraph from './Paragraph';
-
-export { PageTitle, Paragraph };
+export { default as Paragraph } from './Paragraph';
+export { default as Title } from './Title';

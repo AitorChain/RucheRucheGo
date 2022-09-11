@@ -1,4 +1,3 @@
-import ProductDetails from './ProductDetails';
-import ProductImage from './ProductImage';
-
-export { ProductDetails, ProductImage };
+export * from './ProductDetails/DetailsSection';
+export * from './ProductDetails';
+export * from './ProductImage';

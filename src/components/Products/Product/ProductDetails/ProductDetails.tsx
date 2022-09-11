@@ -3,7 +3,7 @@ import isDefinedAndNotEmpty from '../../../../utilities/checks/isDefinedAndNotEm
 
 import { TextWrapper, ItemWrapper, Card } from '../../../UI';
 import { Paragraph } from '../../../UI/Typography';
-import DetailsSection from './DetailsSection';
+import DetailsSection from './DetailsSection/DetailsSection';
 
 export interface ProductDetailsProps {
   product: AdaptedProduct;

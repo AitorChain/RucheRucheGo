@@ -1,7 +1,7 @@
 import useMobileDetect from '../../hooks/useMobileDetect';
 
-import Logo from '../UI/Logo';
-import SearchBar from '../UI/SearchBar';
+import Logo from '../UI/Logo/Logo';
+import SearchBar from '../UI/SearchBar/SearchBar';
 
 interface NavbarProps {
   showSearchBar: boolean;

@@ -1,5 +1,3 @@
-import stringToArray from './stringToArray';
-import substringStringsOfArray from './substringStringOfArray';
-import capitalizeString from './capitalizeString';
-
-export { stringToArray, substringStringsOfArray, capitalizeString };
+export { default as capitalizeString } from './capitalizeString';
+export { default as stringToArray } from './stringToArray';
+export { default as substringStringsOfArray } from './substringStringsOfArray';

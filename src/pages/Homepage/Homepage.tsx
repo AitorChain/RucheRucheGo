@@ -1,8 +1,8 @@
 import { FormEvent, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../app/hooks/hooks';
-import Logo from '../../components/UI/Logo';
-import SearchBar from '../../components/UI/SearchBar';
+import Logo from '../../components/UI/Logo/Logo';
+import SearchBar from '../../components/UI/SearchBar/SearchBar';
 import { setSearchQuery } from '../../features/searchSlice';
 import useTyped from '../../hooks/useTyped';
 

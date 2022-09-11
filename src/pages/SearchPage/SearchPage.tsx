@@ -1,8 +1,8 @@
 import { useAppSelector } from '../../app/hooks/hooks';
 import { useGetProductsQuery } from '../../services/OpenFood';
 
-import Navbar from '../../components/Navbar';
-import ProductsList from '../../components/Products/ProductsList';
+import Navbar from '../../components/Navbar/Navbar';
+import ProductsList from '../../components/Products/ProductsList/ProductList';
 import { BackgroundColorEffect, LoadingSpinner } from '../../components/UI';
 
 const SearchPage = () => {

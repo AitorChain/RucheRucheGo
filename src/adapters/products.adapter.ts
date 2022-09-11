@@ -1,6 +1,6 @@
 import { ProductShort } from '../models/API/OpenFood.types';
 import { AdaptedProductShort } from '../models/UI/Products.types';
-import { capitalizeString } from '../utilities/strings';
+import { capitalizeString } from '../utilities';
 
 //This adapter receives the API Data Model and transforms it to the UI Data Model.
 

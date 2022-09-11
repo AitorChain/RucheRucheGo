@@ -1,19 +1,10 @@
-import BackgroundColorEffect from './BackgroundColorEffect';
-import Button from './Button';
-import Card from './Card';
-import ItemWrapper from './ItemWrapper';
-import Logo from './Logo';
-import SearchBar from './SearchBar';
-import TextWrapper from './TextWrapper';
-import LoadingSpinner from './LoadingSpinner';
-
-export {
-  BackgroundColorEffect,
-  Button,
-  Card,
-  ItemWrapper,
-  Logo,
-  LoadingSpinner,
-  SearchBar,
-  TextWrapper,
-};
+export * from './Animations';
+export * from './BackgroundColorEffect';
+export * from './Button';
+export * from './Card';
+export * from './ItemWrapper';
+export * from './LoadingSpinner';
+export * from './Logo';
+export * from './SearchBar';
+export * from './TextWrapper';
+export * from './Typography';

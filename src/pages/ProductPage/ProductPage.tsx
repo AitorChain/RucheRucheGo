@@ -5,9 +5,8 @@ import { useParams } from 'react-router-dom';
 import { useGetProductByIdQuery } from '../../services/OpenFood';
 import { createProductAdapter } from '../../adapters/product.adapter';
 
-import Navbar from '../../components/Navbar';
-import { LoadingSpinner, BackgroundColorEffect } from '../../components/UI';
-import { PageTitle } from '../../components/UI/Typography';
+import Navbar from '../../components/Navbar/Navbar';
+import { LoadingSpinner, BackgroundColorEffect, Title } from '../../components/UI';
 import { ProductDetails, ProductImage } from '../../components/Products/Product';
 import productPlaceholder from '../../assets/product-placeholder.jpg';
 import { AdaptedProduct } from '../../models/UI/Products.types';
@@ -17,7 +16,6 @@ const ProductPage = () => {
   const { id } = useParams();
 
   const { data, error, isLoading } = useGetProductByIdQuery(id ?? skipToken);
-
 
   //With this use effect we adapt the product from the API Model to the UI Model
   useEffect(() => {
@@ -29,9 +27,9 @@ const ProductPage = () => {
   }, [data]);
 
   const pageTitle = (
-    <PageTitle className="text-white text-center">
+    <Title className="text-white text-center">
       {product?.name ? product.name.toUpperCase() : 'PRODUIT SANS NOM' }
-    </PageTitle>
+    </Title>
   );
 
 

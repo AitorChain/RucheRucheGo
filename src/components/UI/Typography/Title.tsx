@@ -1,4 +1,4 @@
-import { TypographyComponent } from '../../../../models/Default/Typography';
+import { TypographyComponent } from '../../../models/Default/Typography';
 
 const Title = ({ children, className }: TypographyComponent) => {
   return (

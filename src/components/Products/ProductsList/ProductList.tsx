@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { createProductShortAdapter } from '../../../adapters/products.adapter';
 import { ProductShort } from '../../../models/API/OpenFood.types';
 
-import ProductPreview from './ProductPreview';
+import ProductPreview from './ProductPreview/ProductPreview';
 
 interface ProductListProps {
   products: ProductShort[] | undefined;
