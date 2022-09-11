@@ -12,5 +12,5 @@ export const createProductAdapter = (product: Product): AdaptedProduct => ({
   ingredients: capitalizeString(product.ingredients_text),
   brands: product.brands,
   nutriments: product.nutriments,
-  nutritionGrade: product.nutrition_grade
+  nutritionGrade: product.nutrition_grades
 });

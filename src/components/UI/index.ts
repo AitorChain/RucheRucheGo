@@ -5,6 +5,7 @@ export * from './Card';
 export * from './ItemWrapper';
 export * from './LoadingSpinner';
 export * from './Logo';
+export * from './NutriscoreTag';
 export * from './SearchBar';
 export * from './TextWrapper';
 export * from './Typography';

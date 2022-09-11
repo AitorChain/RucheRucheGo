@@ -16,12 +16,13 @@ const ProductsList = ({ products }: ProductListProps) => {
       const adaptedProductShort = createProductShortAdapter(product);
 
       return (
-        // <Link to={`/product/${adaptedProductShort.id}`} key={adaptedProductShort.id}>
-        <ProductPreview
-          key={adaptedProductShort.id}
-          {...adaptedProductShort}
-        />
-        // </Link>
+        <Link to={`/product/${adaptedProductShort.id}`}
+          key={adaptedProductShort.id}>
+          <ProductPreview
+            key={adaptedProductShort.id}
+            {...adaptedProductShort}
+          />
+        </Link>
       );})
   );
 

@@ -6,13 +6,16 @@ import productPlaceholder from '../../../../assets/product-placeholder.jpg';
 import { AdaptedProductShort } from '../../../../models/UI/Products.types';
 import { motion } from 'framer-motion';
 import OnHoverAnimation from '../../../UI/Animations/OnHoverAnimation';
+import { NutriscoreTag } from '../../../UI';
 
 interface ProductPreviewProps extends AdaptedProductShort {
   className?: string;
 }
 
-const ProductPreview = ({ image, name, className }: ProductPreviewProps) => {
+const ProductPreview = ({ image, name, nutritionGrade, className }: ProductPreviewProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
+
+  console.log(nutritionGrade);
 
   const hoverHandler = () => {
     setIsExpanded((prevState) => !prevState);
@@ -40,7 +43,7 @@ const ProductPreview = ({ image, name, className }: ProductPreviewProps) => {
 
 
   return (
-    <motion.div
+    <motion.div layout
       whileHover={{ scale: 1.2 }}
       whileTap={{ scale: 0.9 }}
       transition={{ type: 'spring', stiffness: 400, damping: 17, delay: 0.2 }}
@@ -48,7 +51,8 @@ const ProductPreview = ({ image, name, className }: ProductPreviewProps) => {
       onMouseEnter={hoverHandler}
       onMouseLeave={hoverHandler}
     >
-      <motion.div initial="close"
+      <motion.div layout
+        initial="close"
         className='w-full'
         transition={{
           duration: 0.4,
@@ -56,6 +60,9 @@ const ProductPreview = ({ image, name, className }: ProductPreviewProps) => {
         }}
         animate={isExpanded ? 'open' : 'close'}
         variants={imgVariants}>
+        <div className='absolute w-24 mt-2 ml-2 shadow-lg'>
+          <NutriscoreTag score={nutritionGrade} />
+        </div>
         <img        
           src={image || productPlaceholder}
           alt={name}

@@ -8,13 +8,13 @@ export type AdaptedProduct = {
   nutriments: {
     string: number | string;
   };
-  nutritionGrade: string;
+  nutritionGrade: string | undefined;
 };
 
 export type AdaptedProductShort = {
   id: number;
   image: string;
   name: string;
-  nutritionGrade: string;
+  nutritionGrade: string | undefined;
   brands: string;
 };

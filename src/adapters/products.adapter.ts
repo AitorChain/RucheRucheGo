@@ -9,5 +9,5 @@ export const createProductShortAdapter = (product: ProductShort): AdaptedProduct
   image: product.image_front_url,
   name: capitalizeString(product.product_name),
   brands: capitalizeString(product.brands),
-  nutritionGrade: product.nutrition_grade
+  nutritionGrade: product.nutrition_grades
 });

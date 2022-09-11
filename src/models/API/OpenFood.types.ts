@@ -2,7 +2,7 @@ export type ProductShort = {
   id: number;
   image_front_url: string;
   product_name: string;
-  nutrition_grade: string;
+  nutrition_grades: string;
   brands: string;
 };
 
@@ -16,7 +16,7 @@ export type Product = {
   nutriments: {
     string: number | string;
   };
-  nutrition_grade: string;
+  nutrition_grades: string;
 };
 
 export interface IProductsResult {
