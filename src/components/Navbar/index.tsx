@@ -25,7 +25,7 @@ const Navbar = ({ showSearchBar, whiteLogo }: NavbarProps) => {
     </div>
   ) : (
     <div className="flex">
-      <Logo whiteLogo={whiteLogo} className='w-[18rem] mt-2 md:mt-[-7px] lg:mt-2 xl:absolute xl:top-0' />
+      <Logo whiteLogo={whiteLogo} className='w-[18rem] mt-2 md:mt-2 lg:mt-0 xl:mt-5 xl:absolute xl:top-0' />
     </div>
   );
 

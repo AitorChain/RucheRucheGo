@@ -1,4 +1,4 @@
-import { Product } from '../../../../models/Products';
+import { AdaptedProduct } from '../../../../models/UI/Products.types';
 import { substringStringsOfArray, stringToArray, capitalizeString } from '../../../../utilities/strings';
 
 import { TextWrapper, ItemWrapper, Card } from '../../../UI';
@@ -6,24 +6,24 @@ import { Paragraph } from '../../../UI/Typography';
 import DetailsSection from './DetailsSection';
 
 export interface ProductDetailsProps {
-  product?: Product[];
+  product: AdaptedProduct;
 }
 
 const ProductDetails = ({ product }: ProductDetailsProps) => {
-  const categories = product?.['categories'];
-  const allergens = product?.['allergens_hierarchy'];
-  const ingredients = product?.['ingredients_text'];
+  const {categories, allergens, ingredients} = product;
 
   const detailsAreEmpty = !categories && allergens.length === 0 && !ingredients;
 
   const showNoDetailsMessage = () => <Paragraph className="flexCenter">There are no details for this product.</Paragraph>;
 
+  const CARD_STYLES = 'w-auto lg:w-[35rem]';
+
   const showIngredients = () => {
     const capitalizedIngredients = capitalizeString(ingredients);
 
     return (
-      <Card className="w-auto lg:w-[35rem]">
-        <TextWrapper className="py-4 px-4 lg:pt-5 lg:pb-7 lg:px-6 flex flex-col gap-4">
+      <Card className={CARD_STYLES}>
+        <TextWrapper>
           <DetailsSection categorieName="Ingredients">
             <Paragraph>{capitalizedIngredients}</Paragraph>
           </DetailsSection>
@@ -33,16 +33,14 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
   };
 
   const showCategories = () => {
-    const arrayCategories = stringToArray(categories, ',');
-
     return (
-      <Card className="w-auto lg:w-[35rem]">
-        <TextWrapper className="py-4 px-4 lg:pt-5 lg:pb-7 lg:px-6 flex flex-col gap-4">
+      <Card className={CARD_STYLES}>
+        <TextWrapper>
           <DetailsSection
             categorieName="Categories"
             className="flexCenter flex-row flex-wrap gap-y-2 gap-x-4"
           >
-            {arrayCategories.map((categorie, index) => (
+            {categories.map((categorie, index) => (
               <ItemWrapper key={index} className="bg-purple text-white">
                 {categorie}
               </ItemWrapper>
@@ -54,16 +52,14 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
   };
 
   const showAllergens = () => {
-    const formattedAlergenes = substringStringsOfArray(allergens, 3);
-
     return (
-      <Card className="w-auto lg:w-[35rem]">
-        <TextWrapper className="py-4 px-4 lg:pt-5 lg:pb-7 lg:px-6 flex flex-col gap-4">
+      <Card className={CARD_STYLES}>
+        <TextWrapper>
           <DetailsSection
             categorieName="Allergènes"
             className="flexCenter flex-row flex-wrap gap-y-2 gap-x-4"
           >
-            {formattedAlergenes.map((categorie, index) => (
+            {allergens.map((categorie, index) => (
               <ItemWrapper key={index} className="bg-lightPink text-black text-opacity-80">
                 {categorie}
               </ItemWrapper>

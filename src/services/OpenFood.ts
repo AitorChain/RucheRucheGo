@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { Product, Products } from '../models/Products';
+import { Product, Products } from '../models/API/OpenFood.types';
 
 export interface IProductsResult {
   count: number;
@@ -13,7 +13,7 @@ export interface IProductResult {
   code: number;
   status: number;
   status_verbose: string;
-  product: Product[];
+  product: Product;
 }
 
 export const openFoodApi = createApi({

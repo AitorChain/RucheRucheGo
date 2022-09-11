@@ -1,7 +1,11 @@
-import { ProductImageAndName } from '../../../../models/Products';
 import { Card } from '../../../UI';
 
-const ProductImage = ({ productImageSrc, productName }: ProductImageAndName) => {
+type ProductImageProps = {
+  productImageSrc: string,
+  productName: string
+}
+
+const ProductImage = ({ productImageSrc, productName }: ProductImageProps) => {
   return (
     <Card>
       <img

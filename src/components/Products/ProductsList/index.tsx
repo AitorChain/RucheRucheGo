@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Products } from '../../../models/Products';
+import { Products } from '../../../models/UI/Products.types';
 
 import ProductPreview from './ProductPreview';
 
