@@ -2,8 +2,6 @@ import { Product } from '../models/API/OpenFood.types';
 import { AdaptedProduct } from '../models/UI/Products.types';
 import { capitalizeString, stringToArray, substringStringsOfArray } from '../utilities';
 
-
-
 //This adapter receives the API Data Model and transforms it to the UI Data Model.
 
 export const createProductAdapter = (product: Product): AdaptedProduct => ({

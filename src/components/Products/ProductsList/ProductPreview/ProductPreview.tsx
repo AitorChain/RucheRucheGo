@@ -1,6 +1,10 @@
 import { useState } from 'react';
+
+import { MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md';
+
 import productPlaceholder from '../../../../assets/product-placeholder.jpg';
 import { AdaptedProductShort } from '../../../../models/UI/Products.types';
+import { motion } from 'framer-motion';
 import OnHoverAnimation from '../../../UI/Animations/OnHoverAnimation';
 
 interface ProductPreviewProps extends AdaptedProductShort {
@@ -8,46 +12,84 @@ interface ProductPreviewProps extends AdaptedProductShort {
 }
 
 const ProductPreview = ({ image, name, className }: ProductPreviewProps) => {
-  const [isHover, setIsHover] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   const hoverHandler = () => {
-    setIsHover((prevState) => !prevState);
+    setIsExpanded((prevState) => !prevState);
   };
 
-  const imgStyles = `object-cover w-full h-64 sm:h-56 rounded-sm rounded-b-none transition duration-100 ease-in-out ${
-    isHover && 'brightness-[.35]	'
-  }`;
+  const imgVariants = {
+    open: {
+      height: '2rem',
+    },
+    close: {height: '10rem'}
+  };
 
-  const textOnHover = (
-    <div className="absolute text-center text-white text-xl mb-8 transition ease-in-out duration-500 font-bold georgia">
-      Clickez pour me
-      <br />
-      decouvrir!
-    </div>
-  );
+  const moreInfoVariants = {
+    open: {display: 'flex'},
+    close: {display: 'flex'},
+  };
+
+  const arrowVariants = {
+    open: {
+      transform: 'rotate(180deg'
+    },
+    close: {}
+  };
+
+
 
   return (
-    <OnHoverAnimation>
-      <div
-        className={`flexCenter flex-col w-full h-auto rounded-sm shadow-custom cursor-pointer ${className}`}
-        onMouseEnter={hoverHandler}
-        onMouseLeave={hoverHandler}
-      >
-        <img src={image || productPlaceholder} alt={name}
-          className={imgStyles} />
+    <motion.div
+      whileHover={{ scale: 1.2 }}
+      whileTap={{ scale: 0.9 }}
+      transition={{ type: 'spring', stiffness: 400, damping: 17, delay: 0.6 }}
+      className={`flex flex-col w-full h-[14rem] overflow-y-hidden rounded-md shadow-custom cursor-pointer bg-white ${className}`}
+      onMouseEnter={hoverHandler}
+      onMouseLeave={hoverHandler}
+    >
+      <motion.div initial="close" className='w-full'
+        transition={{
+          duration: 0.5,
+        }}
+        animate={isExpanded ? 'open' : 'close'}
+        variants={imgVariants}>
+        <img        
+          src={image || productPlaceholder}
+          alt={name}
+          className='object-cover h-full w-full rounded-md rounded-b-none' />
+      </motion.div>
 
-        {isHover && textOnHover}
+      <div className='px-3 py-3 w-full bg-red flex flex-row'>
+        <h3 className="text-white leagueGothic text-3xl leading-normal truncate w-full">
+          {name?.toUpperCase() || 'Produit sans nom'}
+        </h3>
+        <motion.div className='flexCenter'>
+          <MdKeyboardArrowUp size={45} className={'text-center text-white'} />
+        </motion.div>
 
-        <div className="px-2 py-2 w-full bg-white flexCenter rounded-b-md ">
-          <h3 className="text-red font-semibold text-xl truncate">
-            {name || 'Produit sans nom'}
-          </h3>
-          <div>
-            {}
-          </div>
-        </div>
+        
       </div>
-    </OnHoverAnimation>
+
+      <motion.div layout variants={moreInfoVariants}
+        initial={'close'}
+        animate={isExpanded ? 'open' : 'close'}
+        className="px-3 py-3 w-full h-full bg-white rounded-b-md"
+        transition={{
+          type: 'tween',
+          ease: 'easeIn',
+          duration: 0.5,
+        }}>
+        <div className='flex flex-col'>
+          <p>Hola amigo</p>
+          <p>Hola amigo</p>
+          <p>Hola amigo</p>
+          <p>Hola amigo</p>
+
+        </div>
+          
+      </motion.div>
+    </motion.div>
   );
 };
 
