@@ -1,20 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { Product, Products } from '../models/API/OpenFood.types';
-
-export interface IProductsResult {
-  count: number;
-  page: number;
-  page_count: number;
-  page_size: number;
-  products: Products[];
-}
-
-export interface IProductResult {
-  code: number;
-  status: number;
-  status_verbose: string;
-  product: Product;
-}
+import { IProductResult, IProductsResult } from '../models/API/OpenFood.types';
 
 export const openFoodApi = createApi({
   reducerPath: 'openFoodApi',

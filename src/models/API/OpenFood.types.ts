@@ -1,4 +1,4 @@
-export type Products = {
+export type ProductShort = {
   id: number;
   image_front_url: string;
   product_name: string;
@@ -18,3 +18,18 @@ export type Product = {
   };
   nutrition_grade: string;
 };
+
+export interface IProductsResult {
+  count: number;
+  page: number;
+  page_count: number;
+  page_size: number;
+  products: ProductShort[];
+}
+
+export interface IProductResult {
+  code: number;
+  status: number;
+  status_verbose: string;
+  product: Product;
+}

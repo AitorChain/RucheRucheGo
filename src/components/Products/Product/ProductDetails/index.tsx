@@ -14,68 +14,63 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
 
   const detailsAreEmpty = !categories && allergens.length === 0 && !ingredients;
 
-  const showNoDetailsMessage = () => <Paragraph className="flexCenter">There are no details for this product.</Paragraph>;
+  const noDetailsMessage = (
+    <Paragraph className="flexCenter">There are no details for this product.</Paragraph>
+  );
 
   const CARD_STYLES = 'w-auto lg:w-[35rem]';
 
-  const showIngredients = () => {
-    const capitalizedIngredients = capitalizeString(ingredients);
+  const ingredientsSection = (
+    <Card className={CARD_STYLES}>
+      <TextWrapper>
+        <DetailsSection categorieName="Ingredients">
+          <Paragraph>{ingredients}</Paragraph>
+        </DetailsSection>
+      </TextWrapper>
+    </Card>
+  );
 
-    return (
-      <Card className={CARD_STYLES}>
-        <TextWrapper>
-          <DetailsSection categorieName="Ingredients">
-            <Paragraph>{capitalizedIngredients}</Paragraph>
-          </DetailsSection>
-        </TextWrapper>
-      </Card>
-    );
-  };
 
-  const showCategories = () => {
-    return (
-      <Card className={CARD_STYLES}>
-        <TextWrapper>
-          <DetailsSection
-            categorieName="Categories"
-            className="flexCenter flex-row flex-wrap gap-y-2 gap-x-4"
-          >
-            {categories.map((categorie, index) => (
-              <ItemWrapper key={index} className="bg-purple text-white">
-                {categorie}
-              </ItemWrapper>
-            ))}
-          </DetailsSection>
-        </TextWrapper>
-      </Card>
-    );
-  };
+  const categoriesSection = (
+    <Card className={CARD_STYLES}>
+      <TextWrapper>
+        <DetailsSection
+          categorieName="Categories"
+          className="flexCenter flex-row flex-wrap gap-y-2 gap-x-4"
+        >
+          {categories.map((categorie, index) => (
+            <ItemWrapper key={index} className="bg-purple text-white">
+              {categorie}
+            </ItemWrapper>
+          ))}
+        </DetailsSection>
+      </TextWrapper>
+    </Card>
+  );
 
-  const showAllergens = () => {
-    return (
-      <Card className={CARD_STYLES}>
-        <TextWrapper>
-          <DetailsSection
-            categorieName="Allergènes"
-            className="flexCenter flex-row flex-wrap gap-y-2 gap-x-4"
-          >
-            {allergens.map((categorie, index) => (
-              <ItemWrapper key={index} className="bg-lightPink text-black text-opacity-80">
-                {categorie}
-              </ItemWrapper>
-            ))}
-          </DetailsSection>
-        </TextWrapper>
-      </Card>
-    );
-  };
+  const allergensSection = (
+    <Card className={CARD_STYLES}>
+      <TextWrapper>
+        <DetailsSection
+          categorieName="Allergènes"
+          className="flexCenter flex-row flex-wrap gap-y-2 gap-x-4"
+        >
+          {allergens.map((categorie, index) => (
+            <ItemWrapper key={index} className="bg-lightPink text-black text-opacity-80">
+              {categorie}
+            </ItemWrapper>
+          ))}
+        </DetailsSection>
+      </TextWrapper>
+    </Card>
+  );
 
   return (
     <div className="w-auto lg:w-[35rem] flex flex-col gap-6">
-      {ingredients && showIngredients()}
-      {categories && showCategories()}
-      {allergens.length !== 0 && showAllergens()}
-      {detailsAreEmpty && showNoDetailsMessage()}
+      {ingredients && ingredientsSection}
+      {categories && categoriesSection}
+      {allergens.length !== 0 && allergensSection}
+      {detailsAreEmpty && noDetailsMessage}
     </div>
   );
 };

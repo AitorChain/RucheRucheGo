@@ -9,8 +9,6 @@ const SearchPage = () => {
   const { searchQuery } = useAppSelector((state) => state.search);
   const { data, error, isLoading } = useGetProductsQuery(searchQuery);
 
-  console.log(data);
-
   return (
     <div>
       <BackgroundColorEffect height="h-44 sm:h-60 lg:h-28 xl:h-28 " />

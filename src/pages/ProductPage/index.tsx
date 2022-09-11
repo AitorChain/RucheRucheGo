@@ -18,6 +18,8 @@ const ProductPage = () => {
 
   const { data, error, isLoading } = useGetProductByIdQuery(id ?? skipToken);
 
+
+  //With this use effect we adapt the product from the API Model to the UI Model
   useEffect(() => {
     if (data?.product) {
       const adaptedProduct = createProductAdapter(data.product);
@@ -26,25 +28,33 @@ const ProductPage = () => {
     
   }, [data]);
 
+  const pageTitle = (
+    <PageTitle className="text-white text-center">
+      {product?.name ? product.name.toUpperCase() : 'PRODUIT SANS NOM' }
+    </PageTitle>
+  );
+
+
+  //I've use the non-null assertion because we will call it using products && 'pageInformation'
+  const pageInformation = (
+    <div className="flexCenter flex-col lg:flex lg:items-start lg:flexCenterStart lg:flex-row gap-8 lg:gap-28 mb-8 ">
+      <ProductImage
+        image={product!.image || productPlaceholder}
+        name={product!.name}
+      />
+      <ProductDetails product={product!} />
+    </div>
+  );
+
   return (
     <div>
       <BackgroundColorEffect color="bg-purple" height="h-56" />
       <Navbar showSearchBar={false} whiteLogo />
-      <PageTitle className="text-white text-center">
-        {product?.name ? product.name.toUpperCase() : 'PRODUIT SANS NOM' }
-      </PageTitle>
+      {product?.name && pageTitle}
       <main>
         {isLoading && <LoadingSpinner randomLoader />}
         {error && <h2 className="text-2xl">Il y a eu un erreur. Réesayez plus tard.</h2>}
-        {product && (
-          <div className="flexCenter flex-col lg:flex lg:items-start lg:flexCenterStart lg:flex-row gap-8 lg:gap-28 mb-8 ">
-            <ProductImage
-              productImageSrc={product.image || productPlaceholder}
-              productName={product.name}
-            />
-            <ProductDetails product={product} />
-          </div>
-        )}
+        {product && pageInformation}
       </main>
     </div>
   );

@@ -1,16 +1,16 @@
 import { Card } from '../../../UI';
 
 type ProductImageProps = {
-  productImageSrc: string,
-  productName: string
+  image: string,
+  name: string
 }
 
-const ProductImage = ({ productImageSrc, productName }: ProductImageProps) => {
+const ProductImage = ({ image, name }: ProductImageProps) => {
   return (
     <Card>
       <img
-        src={productImageSrc}
-        alt={productName}
+        src={image}
+        alt={name}
         className="object-cover w-96 h-96 rounded-md border-white border"
       />
     </Card>

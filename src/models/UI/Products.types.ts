@@ -10,3 +10,11 @@ export type AdaptedProduct = {
   };
   nutritionGrade: string;
 };
+
+export type AdaptedProductShort = {
+  id: number;
+  image: string;
+  name: string;
+  nutritionGrade: string;
+  brands: string;
+};

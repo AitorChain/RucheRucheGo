@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import productPlaceholder from '../../../../assets/product-placeholder.jpg';
-import { ProductImageAndName } from '../../../../models/UI/Products.types';
+import { AdaptedProductShort } from '../../../../models/UI/Products.types';
 import OnHoverAnimation from '../../../UI/Animations/OnHoverAnimation';
 
-interface ProductImageAndNameProps extends ProductImageAndName {
+interface ProductPreviewProps extends AdaptedProductShort {
   className?: string;
 }
 
-const ProductPreview = ({ productImageSrc, productName, className }: ProductImageAndNameProps) => {
+const ProductPreview = ({ image, name, className }: ProductPreviewProps) => {
   const [isHover, setIsHover] = useState(false);
 
   const hoverHandler = () => {
@@ -33,14 +33,14 @@ const ProductPreview = ({ productImageSrc, productName, className }: ProductImag
         onMouseEnter={hoverHandler}
         onMouseLeave={hoverHandler}
       >
-        <img src={productImageSrc || productPlaceholder} alt={productName}
+        <img src={image || productPlaceholder} alt={name}
           className={imgStyles} />
 
         {isHover && textOnHover}
 
         <div className="px-2 py-2 w-full bg-white flexCenter rounded-b-md ">
           <h3 className="text-red font-semibold text-xl truncate">
-            {productName || 'Produit sans nom'}
+            {name || 'Produit sans nom'}
           </h3>
           <div>
             {}
