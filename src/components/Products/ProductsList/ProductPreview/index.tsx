@@ -29,7 +29,7 @@ const ProductPreview = ({ productImageSrc, productName, className }: ProductImag
   return (
     <OnHoverAnimation>
       <div
-        className={`flexCenter flex-col rounded-md shadow-custom cursor-pointer ${className}`}
+        className={`flexCenter flex-col w-full h-auto rounded-md shadow-custom cursor-pointer ${className}`}
         onMouseEnter={hoverHandler}
         onMouseLeave={hoverHandler}
       >
@@ -38,8 +38,8 @@ const ProductPreview = ({ productImageSrc, productName, className }: ProductImag
 
         {isHover && textOnHover}
 
-        <div className="px-2 py-2 w-full bg-red flexCenter rounded-b-md ">
-          <h3 className="leagueGothic text-white text-2xl truncate">
+        <div className="px-2 py-2 w-full bg-white flexCenter rounded-b-md ">
+          <h3 className="leagueGothic text-red text-2xl truncate">
             {productName?.toUpperCase() || 'Produit sans nom'}
           </h3>
         </div>
