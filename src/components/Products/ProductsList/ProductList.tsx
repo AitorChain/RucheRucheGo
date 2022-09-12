@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import { createProductShortAdapter } from '../../../adapters/products.adapter';
 import { ProductShort } from '../../../models/API/OpenFood.types';
 
@@ -16,13 +16,10 @@ const ProductsList = ({ products }: ProductListProps) => {
       const adaptedProductShort = createProductShortAdapter(product);
 
       return (
-        // <Link to={`/product/${adaptedProductShort.id}`}
-        //   key={adaptedProductShort.id}>
         <ProductPreview
           key={index}
           {...adaptedProductShort}
         />
-        // </Link>
       );})
   );
 

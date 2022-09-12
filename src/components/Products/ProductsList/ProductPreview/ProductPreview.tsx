@@ -7,7 +7,8 @@ import { AdaptedProductShort } from '../../../../models/UI/Products.types';
 import { motion } from 'framer-motion';
 import { Button, NutriscoreTag } from '../../../UI';
 import { useMobileDetect } from '../../../../hooks';
-import { useNavigate } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
+import { ProductModal } from '../ProductModal';
 
 interface ProductPreviewProps extends AdaptedProductShort {
   className?: string;
@@ -63,13 +64,12 @@ const ProductPreview = ({ image, name, nutritionGrade, className, id, ingredient
       onMouseEnter={hoverHandler}
       onMouseLeave={hoverHandler}
     >
+
+      {/*------Image and nutriscore-------*/}
       <motion.div layout
         initial="close"
         className='w-full z-20'
-        transition={{
-          duration: 0.4,
-          delay: 0.2
-        }}
+        transition={{ duration: 0.4, delay: 0.2 }}
         animate={isExpanded ? 'open' : 'close'}
         variants={imgVariants}>
         <div className='absolute w-24 mt-2 z-20 ml-2'>
@@ -82,6 +82,7 @@ const ProductPreview = ({ image, name, nutritionGrade, className, id, ingredient
           className='object-cover min-h-[14em] z-20 h-full w-full rounded-sm select-none pointer-events-none rounded-b-none brightness-75' />
       </motion.div>
 
+      {/*------Title and arrow------- */}
       <div onClick={arrowClickHandler}
         className='px-3 py-3 w-full z-30 bg-red flex flex-row'>
         <h3 className="text-white leagueGothic text-3xl leading-normal truncate w-full">
@@ -91,15 +92,14 @@ const ProductPreview = ({ image, name, nutritionGrade, className, id, ingredient
           animate={isExpanded ? 'open' : 'close'}
           variants={arrowVariants}
           className='flexCenter'
-          transition={{
-            duration: 0.4,
-            delay: 0.2
-          }}>
+          transition={{duration: 0.4, delay: 0.2 }}>
           <MdKeyboardArrowUp size={45}
             className={'text-center text-white'} />
         </motion.div>
       </div>
 
+
+      {/*------More details & button------- */}
       <div className="py-2 px-4 z-20 w-full h-full flex flex-col justify-between bg-white rounded-b-md">
         <div className='flex flex-col gap-2 w-full h-full'>
           <h5 className='text-center text-lg line-clamp-2 font-bold text-red lato'>{name}</h5>
@@ -111,6 +111,7 @@ const ProductPreview = ({ image, name, nutritionGrade, className, id, ingredient
             buttonText='Découvrir'/>
         </div>
       </div>
+
     </motion.div>
   );
 };

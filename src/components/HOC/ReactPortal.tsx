@@ -5,7 +5,7 @@ import { createPortal } from 'react-dom';
 const createWrapperAndAppend = (wrapperId: string) => {
   const wrapperElement = document.createElement('div');
   wrapperElement.setAttribute('id', wrapperId);
-  document.body.appendChild(wrapperElement);
+  document.body.prepend(wrapperElement);
   return wrapperElement;
 };
 
@@ -41,6 +41,7 @@ const ReactPortal = ({children, wrapperId}: ReactPortalProps) => {
     };
   }, [wrapperId]);
 
+  //If there's an error, code stops here
   if (wrapperElement === null) return null;
 
   return createPortal(children, wrapperElement as HTMLElement);

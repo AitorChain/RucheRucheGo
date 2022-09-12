@@ -1,7 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from 'react';
 import { MdKeyboardArrowUp } from 'react-icons/md';
-import { useMobileDetect } from '../../../../../hooks';
 import { ComposedFCWithStyles } from '../../../../../models/Default/ComposedFCWithStyles';
 
 interface DetailsSectionProps extends ComposedFCWithStyles {

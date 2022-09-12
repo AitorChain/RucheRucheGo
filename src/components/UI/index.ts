@@ -9,3 +9,4 @@ export * from './NutriscoreTag';
 export * from './SearchBar';
 export * from './TextWrapper';
 export * from './Typography';
+export * from './Modal';

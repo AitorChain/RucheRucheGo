@@ -4,6 +4,7 @@ import { useGetProductsQuery } from '../../services/OpenFood';
 import Navbar from '../../components/Navbar/Navbar';
 import ProductsList from '../../components/Products/ProductsList/ProductList';
 import { LoadingSpinner } from '../../components/UI';
+import { Outlet } from 'react-router-dom';
 
 const SearchPage = () => {
   const { searchQuery } = useAppSelector((state) => state.search);
@@ -21,6 +22,10 @@ const SearchPage = () => {
         {data?.products?.length !== 0 && <ProductsList products={data?.products} />}
 
         {data?.products?.length === 0 && <h2 className="text-2xl">Aucun resultat trouvé</h2>}
+
+        {/* ATTENTION: This will render the search/preview/:id route and, therefore, render the ProductModal component */}
+        <Outlet />
+
       </main>
     </div>
   );
