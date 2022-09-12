@@ -59,7 +59,7 @@ const ProductPreview = ({ image, name, nutritionGrade, className, id, ingredient
     <motion.div layout
       whileHover={{ scale: 1.2, zIndex: 40 }}
       transition={{ type: 'spring', stiffness: 400, damping: 17, delay: 0.8 }}
-      className={`flex flex-col w-full h-[14rem] overflow-y-hidden rounded-sm shadow-md cursor-pointer bg-white ${className}`}
+      className={`flex flex-col w-full h-[14rem] overflow-hidden rounded-sm shadow-md cursor-pointer bg-white ${className}`}
       onMouseEnter={hoverHandler}
       onMouseLeave={hoverHandler}
     >
