@@ -16,6 +16,7 @@
     line-height: 21px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: transparent
   }
 }
 

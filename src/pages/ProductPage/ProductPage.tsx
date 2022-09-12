@@ -27,7 +27,7 @@ const ProductPage = () => {
   }, [data]);
 
   const pageTitle = (
-    <Title className="text-white text-center">
+    <Title className="text-white text-center mb-8">
       {product?.name ? product.name.toUpperCase() : 'PRODUIT SANS NOM' }
     </Title>
   );
@@ -46,8 +46,10 @@ const ProductPage = () => {
 
   return (
     <>
-      <BackgroundColorEffect color="bg-red" height="h-56" />
-      <Navbar showSearchBar={false} whiteLogo />
+      <BackgroundColorEffect color="bg-red"
+        height="h-56 md:h-96 lg:h-56 xl:h-44" />
+      <Navbar showSearchBar={false}
+        whiteLogo />
       {product?.name && pageTitle}
       <main className='pageMargins'>
         {isLoading && <LoadingSpinner randomLoader />}

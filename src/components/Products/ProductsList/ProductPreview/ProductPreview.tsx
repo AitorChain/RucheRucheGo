@@ -46,11 +46,6 @@ const ProductPreview = ({ image, name, nutritionGrade, className, id, ingredient
     close: {height: '10rem'}
   };
 
-  const moreInfoVariants = {
-    open: {display: 'flex'},
-    close: {display: 'flex'},
-  };
-
   const arrowVariants = {
     open: {
       transform: 'rotate(180deg)'
@@ -64,7 +59,7 @@ const ProductPreview = ({ image, name, nutritionGrade, className, id, ingredient
     <motion.div layout
       whileHover={{ scale: 1.2, zIndex: 40 }}
       transition={{ type: 'spring', stiffness: 400, damping: 17, delay: 0.8 }}
-      className={`flex flex-col w-full h-[14rem] overflow-y-hidden rounded-md shadow-md cursor-pointer bg-white ${className}`}
+      className={`flex flex-col w-full h-[14rem] overflow-y-hidden rounded-sm shadow-md cursor-pointer bg-white ${className}`}
       onMouseEnter={hoverHandler}
       onMouseLeave={hoverHandler}
     >
@@ -84,10 +79,11 @@ const ProductPreview = ({ image, name, nutritionGrade, className, id, ingredient
         <img        
           src={image || productPlaceholder}
           alt={name}
-          className='object-cover min-h-[14em] z-20 h-full w-full rounded-md select-none pointer-events-none rounded-b-none brightness-75' />
+          className='object-cover min-h-[14em] z-20 h-full w-full rounded-sm select-none pointer-events-none rounded-b-none brightness-75' />
       </motion.div>
 
-      <div className='px-3 py-3 w-full z-30 bg-red flex flex-row'>
+      <div onClick={arrowClickHandler}
+        className='px-3 py-3 w-full z-30 bg-red flex flex-row'>
         <h3 className="text-white leagueGothic text-3xl leading-normal truncate w-full">
           {name?.toUpperCase() || 'Produit sans nom'}
         </h3>
@@ -100,22 +96,13 @@ const ProductPreview = ({ image, name, nutritionGrade, className, id, ingredient
             delay: 0.2
           }}>
           <MdKeyboardArrowUp size={45}
-            onClick={arrowClickHandler}
             className={'text-center text-white'} />
         </motion.div>
 
         
       </div>
 
-      <motion.div layout
-        variants={moreInfoVariants}
-        initial={'close'}
-        animate={isExpanded ? 'open' : 'close'}
-        className="py-2 px-4 z-20 w-full h-full flex flex-col justify-between bg-white rounded-b-md"
-        transition={{
-          duration: 0.4,
-          delay: 0.6
-        }}>
+      <div className="py-2 px-4 z-20 w-full h-full flex flex-col justify-between bg-white rounded-b-md">
         <div className='flex flex-col gap-2 w-full h-full'>
           <h5 className='text-center text-lg line-clamp-2 font-bold text-red lato'>{name}</h5>
           <p className='truncate text-md lato font-semibold italic text-center text-black'>{ingredients}</p>
@@ -125,7 +112,7 @@ const ProductPreview = ({ image, name, nutritionGrade, className, id, ingredient
           <Button clickHandler={buttonClickHandler}
             buttonText='Découvrir'/>
         </div>
-      </motion.div>
+      </div>
     </motion.div>
   );
 };

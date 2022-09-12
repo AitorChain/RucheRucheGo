@@ -16,8 +16,10 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
 
   const ingredientsSection = (
     <Card className={CARD_STYLES}>
-      <TextWrapper>
-        <DetailsSection categorieName="Ingredients">
+      <TextWrapper className='py-2'>
+        <DetailsSection categorieName="Ingredients"
+          key='Ingredients'
+          expanded>
           <Paragraph>{ingredients}</Paragraph>
         </DetailsSection>
       </TextWrapper>
@@ -28,11 +30,13 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
     <Card className={CARD_STYLES}>
       <TextWrapper>
         <DetailsSection
+          key={'Categories'}
           categorieName="Categories"
           className="flexCenter flex-row flex-wrap gap-y-2 gap-x-4"
         >
           {categories.map((categorie, index) => (
-            <ItemWrapper key={index} className="bg-purple text-white">
+            <ItemWrapper key={index}
+              className="bg-purple text-white">
               {categorie}
             </ItemWrapper>
           ))}
@@ -45,11 +49,13 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
     <Card className={CARD_STYLES}>
       <TextWrapper>
         <DetailsSection
+          key={'Allergens'}
           categorieName="Allergènes"
           className="flexCenter flex-row flex-wrap gap-y-2 gap-x-4"
         >
           {allergens.map((categorie, index) => (
-            <ItemWrapper key={index} className="bg-lightPink text-black text-opacity-80">
+            <ItemWrapper key={index}
+              className="bg-lightPink text-black text-opacity-80">
               {categorie}
             </ItemWrapper>
           ))}
@@ -65,7 +71,7 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
   );
 
   return (
-    <div className="w-auto lg:w-[35rem] flex flex-col gap-6">
+    <div className="w-full lg:w-[35rem] flex flex-col gap-2">
       {isDefinedAndNotEmpty(ingredients) && ingredientsSection}
       {isDefinedAndNotEmpty(categories) && categoriesSection}
       {isDefinedAndNotEmpty(allergens) && allergensSection}

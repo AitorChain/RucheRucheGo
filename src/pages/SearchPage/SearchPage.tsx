@@ -11,8 +11,9 @@ const SearchPage = () => {
 
   return (
     <div>
-      <Navbar whiteLogo showSearchBar />
-      <main className="flexCenter my-8 md:my-16 pageMargins">
+      <Navbar whiteLogo
+        showSearchBar />
+      <main className="flexCenter my-8 pageMargins">
         {isLoading && <LoadingSpinner randomLoader />}
 
         {error && <h2 className="text-2xl">Il y a eu un erreur. Réesayez plus tard.</h2>}
