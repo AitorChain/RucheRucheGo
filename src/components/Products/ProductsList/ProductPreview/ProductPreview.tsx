@@ -76,7 +76,7 @@ const ProductPreview = ({ image, name, nutritionGrade, className, id, ingredient
           <NutriscoreTag score={nutritionGrade}
             className="w-24 z-20" />
         </div>
-        <img        
+        <img
           src={image || productPlaceholder}
           alt={name}
           className='object-cover min-h-[14em] z-20 h-full w-full rounded-sm select-none pointer-events-none rounded-b-none brightness-75' />
@@ -98,8 +98,6 @@ const ProductPreview = ({ image, name, nutritionGrade, className, id, ingredient
           <MdKeyboardArrowUp size={45}
             className={'text-center text-white'} />
         </motion.div>
-
-        
       </div>
 
       <div className="py-2 px-4 z-20 w-full h-full flex flex-col justify-between bg-white rounded-b-md">
