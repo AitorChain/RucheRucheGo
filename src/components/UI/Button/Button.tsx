@@ -11,7 +11,8 @@ const Button = ({ buttonText, clickHandler, type = 'submit' }: ButtonProps) => {
 
   if (clickHandler) {
     return (
-      <button className={buttonStyles} type={type}
+      <button className={buttonStyles}
+        type={type}
         onClick={clickHandler}>
         {buttonText}
       </button>
@@ -19,7 +20,8 @@ const Button = ({ buttonText, clickHandler, type = 'submit' }: ButtonProps) => {
   }
 
   return (
-    <button className={buttonStyles} type={type}>
+    <button className={buttonStyles}
+      type={type}>
       {buttonText}
     </button>
   );

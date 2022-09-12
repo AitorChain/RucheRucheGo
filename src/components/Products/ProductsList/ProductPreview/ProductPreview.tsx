@@ -1,13 +1,13 @@
-import { useState } from 'react';
+import { MouseEvent, useState } from 'react';
 
-import { MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md';
+import { MdKeyboardArrowUp } from 'react-icons/md';
 
 import productPlaceholder from '../../../../assets/product-placeholder.jpg';
 import { AdaptedProductShort } from '../../../../models/UI/Products.types';
 import { motion } from 'framer-motion';
-import OnHoverAnimation from '../../../UI/Animations/OnHoverAnimation';
-import { NutriscoreTag } from '../../../UI';
+import { Button, NutriscoreTag } from '../../../UI';
 import { useMobileDetect } from '../../../../hooks';
+import { useNavigate } from 'react-router-dom';
 
 interface ProductPreviewProps extends AdaptedProductShort {
   className?: string;
@@ -15,6 +15,8 @@ interface ProductPreviewProps extends AdaptedProductShort {
 
 const ProductPreview = ({ image, name, nutritionGrade, className, id, ingredients }: ProductPreviewProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
+
+  const navigate = useNavigate();
 
   const { isMobile } = useMobileDetect();
 
@@ -25,11 +27,16 @@ const ProductPreview = ({ image, name, nutritionGrade, className, id, ingredient
     return;
   };
 
-  const handleArrowClick = () => {
+  const arrowClickHandler = () => {
     if (isMobile) {
       setIsExpanded((prevState) => !prevState);
     }
     return;
+  };
+
+  const buttonClickHandler = (event: MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    navigate(`/product/${id}`);
   };
 
   const imgVariants = {
@@ -93,7 +100,7 @@ const ProductPreview = ({ image, name, nutritionGrade, className, id, ingredient
             delay: 0.2
           }}>
           <MdKeyboardArrowUp size={45}
-            onClick={handleArrowClick}
+            onClick={arrowClickHandler}
             className={'text-center text-white'} />
         </motion.div>
 
@@ -104,16 +111,20 @@ const ProductPreview = ({ image, name, nutritionGrade, className, id, ingredient
         variants={moreInfoVariants}
         initial={'close'}
         animate={isExpanded ? 'open' : 'close'}
-        className="py-2 px-4 z-20 w-full h-full bg-white rounded-b-md"
+        className="py-2 px-4 z-20 w-full h-full flex flex-col justify-between bg-white rounded-b-md"
         transition={{
           duration: 0.4,
           delay: 0.6
         }}>
         <div className='flex flex-col gap-2 w-full h-full'>
-          <h5 className='text-center text-lg font-bold text-red lato'>{name}</h5>
-          <p className='truncate text-md lato font-semibold italic text-black'>{ingredients}</p>
+          <h5 className='text-center text-lg line-clamp-2 font-bold text-red lato'>{name}</h5>
+          <p className='truncate text-md lato font-semibold italic text-center text-black'>{ingredients}</p>
         </div>
           
+        <div className='flexCenter'>
+          <Button clickHandler={buttonClickHandler}
+            buttonText='Découvrir'/>
+        </div>
       </motion.div>
     </motion.div>
   );

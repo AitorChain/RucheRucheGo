@@ -10,6 +10,7 @@
     margin: 0;
     background: #ffe8d2;
     color: #5c272f;
+    overflow-x: hidden;
     font-family: 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 14px;
     line-height: 21px;

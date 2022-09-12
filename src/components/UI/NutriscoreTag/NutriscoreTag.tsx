@@ -30,7 +30,6 @@ const NutriscoreTag = ({score, className}: NutriscoreTagProps) => {
     nutriscoreImage = nutriscore.scoreC;
   }
 
-
   return (
     <img
       src={nutriscoreImage}
