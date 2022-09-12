@@ -17,4 +17,5 @@ export type AdaptedProductShort = {
   name: string;
   nutritionGrade: string | undefined;
   brands: string;
+  ingredients: string;
 };

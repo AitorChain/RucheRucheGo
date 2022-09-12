@@ -6,10 +6,10 @@ export const openFoodApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: 'https://world.openfoodfacts.org' }),
   endpoints: (builder) => ({
     getProducts: builder.query<IProductsResult, string>({
-      query: (searchTerm) => `cgi/search.pl?search_terms=${searchTerm}&search_simple=1&action=process&fields=id%2Cproduct_name%2Cbrands%2Cnutrition_grades%2Cimage_front_url&json=1&page=1&page_size=24`,
+      query: (searchTerm) => `cgi/search.pl?search_terms=${searchTerm}&search_simple=1&action=process&fields=id%2Cproduct_name%2Cingredients_text%2Cbrands%2Cnutrition_grades%2Cimage_front_url&json=1&page=1&page_size=24`,
     }),
     getProductById: builder.query<IProductResult, string>({
-      query: (id) => `api/v0/product/${id}.json?fields=product_name%2Ccategories%2Cimage_front_url%2Callergens_hierarchy%2Cingredients_text%2Cnutriments%2Cbrands%2Cnutrition_grades%2C`,
+      query: (id) => `api/v0/product/${id}.json?fields=product_name%2Ccategories%2Cimage_front_url%2Callergens_hierarchy%2Cingredients_text%2Cnutriments%2Cbrands%2Cnutrition_grades`,
     }),
   }),
 });

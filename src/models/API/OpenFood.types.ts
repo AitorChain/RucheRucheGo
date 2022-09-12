@@ -4,6 +4,7 @@ export type ProductShort = {
   product_name: string;
   nutrition_grades: string;
   brands: string;
+  ingredients_text: string;
 };
 
 export type Product = {

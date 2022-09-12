@@ -11,24 +11,24 @@ interface ProductListProps {
 const ProductsList = ({ products }: ProductListProps) => {
 
   const adaptAndShowProducts = () => (
-    products?.map((product) => {
+    products?.map((product, index) => {
 
       const adaptedProductShort = createProductShortAdapter(product);
 
       return (
-        <Link to={`/product/${adaptedProductShort.id}`}
-          key={adaptedProductShort.id}>
-          <ProductPreview
-            key={adaptedProductShort.id}
-            {...adaptedProductShort}
-          />
-        </Link>
+        // <Link to={`/product/${adaptedProductShort.id}`}
+        //   key={adaptedProductShort.id}>
+        <ProductPreview
+          key={index}
+          {...adaptedProductShort}
+        />
+        // </Link>
       );})
   );
 
 
   return (
-    <div className="grid grid-cols-1 2xl:grid-cols-7 xl:grid-cols-5 lg:grid-cols-4 sm:grid-cols-3 gap-8">
+    <div className="grid grid-cols-1 2xl:grid-cols-6 xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 gap-8">
       {adaptAndShowProducts()}
     </div>
   );
