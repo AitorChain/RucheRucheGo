@@ -65,7 +65,7 @@ const DetailsSection = ({ children, categorieName, className, expanded=false }: 
               exit="close"
               transition={{ duration: 0.4, delay: 0.2 }}
               animate={isExpanded ? 'open' : 'close'}
-              className={`${className} text-black mt-2 h-full text-justify p-4 bg-[#f3f3f3] rounded-md border`}>
+              className={`${className} text-black mt-2 h-full text-justify p-4 bg-[#f3f3f3] rounded-sm border`}>
               {children}
             </motion.div>
           )}
