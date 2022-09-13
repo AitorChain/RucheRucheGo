@@ -27,7 +27,8 @@ const ProductPreview = ({ productImageSrc, productName }: ProductImageAndName) =
       onMouseEnter={hoverHandler}
       onMouseLeave={hoverHandler}
     >
-      <img src={productImageSrc || productPlaceholder} alt={productName} className={imgStyles} />
+      <img src={productImageSrc || productPlaceholder} alt={productName}
+        className={imgStyles} />
 
       {isHover && textOnHover}
 
